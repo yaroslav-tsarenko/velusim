@@ -114,7 +114,7 @@ export function DestinationSearch({
           id={listId}
           role="listbox"
           aria-label="Destination results"
-          className="glass absolute z-40 mt-2 w-full overflow-hidden rounded-panel shadow-glow-lg"
+          className="glass-overlay absolute z-50 mt-2 w-full overflow-hidden rounded-panel text-left"
         >
           {!query ? (
             <li className="eyebrow px-4 pt-3.5 pb-1">Popular destinations</li>

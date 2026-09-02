@@ -49,7 +49,7 @@ export function Hero() {
         </p>
 
         {/* Centerpiece — the glowing destination field */}
-        <div className="animate-fade-up mt-10 w-full max-w-2xl" data-delay="3">
+        <div className="animate-fade-up relative z-30 mt-10 w-full max-w-2xl" data-delay="3">
           <DestinationSearch size="lg" placeholder="Where to next?" />
           <ul className="mt-5 flex flex-wrap justify-center gap-2" aria-label="Popular destinations">
             {chips.map((c) => (

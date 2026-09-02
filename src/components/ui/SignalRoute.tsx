@@ -24,16 +24,9 @@ export function SignalRoute({ to, from = "You", animate, className }: SignalRout
     >
       <span className="eyebrow shrink-0">{from}</span>
       <svg viewBox="0 0 120 24" className="h-5 flex-1" fill="none" aria-hidden preserveAspectRatio="none">
-        <defs>
-          <linearGradient id={`arc-${to}`} x1="0" y1="24" x2="120" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="var(--aurora-1)" />
-            <stop offset="0.52" stopColor="var(--aurora-2)" />
-            <stop offset="1" stopColor="var(--aurora-3)" />
-          </linearGradient>
-        </defs>
         <path
           d="M5 19 Q 60 -4 115 13"
-          stroke={`url(#arc-${to})`}
+          stroke="url(#velusim-arc)"
           strokeWidth="1.4"
           strokeLinecap="round"
           strokeDasharray={animate ? "220" : undefined}

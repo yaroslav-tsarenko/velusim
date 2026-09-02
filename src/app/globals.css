@@ -32,6 +32,9 @@
 
   /* Glass treatment — low-alpha fill + hairline + inner highlight */
   --glass-fill: rgba(255, 255, 255, 0.72);
+  /* Overlays (menus, listboxes, popovers) must occlude whatever they cover,
+     so they use an opaque fill rather than the translucent one. */
+  --glass-fill-solid: #ffffff;
   --glass-highlight: rgba(255, 255, 255, 0.9);
   --glass-blur: 14px;
 
@@ -91,6 +94,7 @@
   --card-raised: #1c2740;
 
   --glass-fill: rgba(24, 33, 54, 0.62);
+  --glass-fill-solid: #161e32;
   --glass-highlight: rgba(237, 241, 250, 0.08);
   --glass-blur: 16px;
 
@@ -241,6 +245,7 @@
     --card: #182136;
     --card-raised: #1c2740;
     --glass-fill: rgba(24, 33, 54, 0.62);
+    --glass-fill-solid: #161e32;
     --glass-highlight: rgba(237, 241, 250, 0.08);
     --ink: #edf1fa;
     --ink-muted: #8b94ad;
@@ -277,6 +282,16 @@
       var(--glow-sm);
     backdrop-filter: blur(var(--glass-blur)) saturate(140%);
     -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  }
+
+  /* An overlay that must stay readable over whatever it covers — search
+     results, menus, popovers. Same material as `.glass`, opaque fill. */
+  .glass-overlay {
+    background-color: var(--glass-fill-solid);
+    border: 1px solid var(--hairline-strong);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      var(--glow-lg);
   }
 
   /* Aurora edge-light — a gradient hairline drawn with a mask so the

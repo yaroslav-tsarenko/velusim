@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/layout/CookieConsent";
 import { getCurrentUser } from "@/lib/auth/dal";
+import { AuroraDefs } from "@/components/ui/AuroraDefs";
 import { site } from "@/lib/site";
 
 /** Display — geometric, slightly aeronautical. Headings only. */
@@ -79,6 +80,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="flex min-h-full flex-col bg-night text-ink">
+        <AuroraDefs />
         <PreferencesProvider>
           <a
             href="#main"
