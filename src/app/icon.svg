@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Velusim">
+  <defs>
+    <linearGradient id="a" x1="20" y1="42" x2="50" y2="14" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2EE6A8"/>
+      <stop offset="0.52" stop-color="#31C4E8"/>
+      <stop offset="1" stop-color="#8A6CF5"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#0A0E1A"/>
+  <g fill="none" stroke="url(#a)" stroke-linecap="round">
+    <path d="M20.96 23.76A17.5 17.5 0 0 1 41.49 41.61" stroke-width="3.6"/>
+    <path d="M19.4 14.9A26.5 26.5 0 0 1 50.48 41.92" stroke-width="2.8" opacity="0.5"/>
+  </g>
+  <circle cx="24" cy="41" r="5.2" fill="#2EE6A8"/>
+</svg>

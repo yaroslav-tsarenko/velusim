@@ -1,0 +1,524 @@
+@import "tailwindcss";
+
+/* Theme is driven by a `.dark` class (toggled in JS), not the OS media query,
+   so `dark:` utilities must follow that class. Dark ("Aurora Signal") is the
+   primary, first-class theme; light ("Daybreak") is the secondary variant. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  ─────────────────────────────────────────────────────────────
+  VELUSIM — "Aurora Signal" Design Token System
+  Single source of truth. No ad-hoc colors, no magic numbers.
+
+  Concept: connectivity is invisible — signals crossing the night
+  sky above travelers. A polar-night canvas, an aurora gradient
+  (emerald → teal → violet) flowing through the interface, a
+  starfield beneath, and glassy surfaces lit from within.
+
+  Default (`:root`) = Daybreak (light). `.dark` = Aurora Signal
+  (polar night) and is what ships by default — see themeScript in
+  app/layout.tsx, which opts into `.dark` unless the visitor has
+  explicitly chosen light.
+  ─────────────────────────────────────────────────────────────
+*/
+
+:root {
+  /* ── Surfaces — "Daybreak": cool ice-white, tamed aurora ── */
+  --night: #f4f7fc;          /* page base */
+  --night-deep: #e9eef8;     /* deepest band (footer) */
+  --surface: #ffffff;        /* elevated surface */
+  --card: #ffffff;           /* card fill */
+  --card-raised: #ffffff;
+
+  /* Glass treatment — low-alpha fill + hairline + inner highlight */
+  --glass-fill: rgba(255, 255, 255, 0.72);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-blur: 14px;
+
+  /* ── Ink ── */
+  --ink: #0a0e1a;            /* deep night ink on ice */
+  --ink-muted: #5b6479;
+  --ink-inverse: #edf1fa;    /* starlight, for use on night surfaces */
+
+  /* ── Aurora — the signature gradient. Each stop usable alone. ── */
+  --aurora-1: #10b981;       /* emerald, darkened for AA on ice */
+  --aurora-2: #0e9fc4;       /* teal */
+  --aurora-3: #6d4ee0;       /* violet */
+  --aurora: linear-gradient(100deg, var(--aurora-1) 0%, var(--aurora-2) 52%, var(--aurora-3) 100%);
+
+  /* Solo accents */
+  --emerald: #0f9d76;        /* prices, success, "connected" */
+  --emerald-soft: #e3f7f0;
+  --violet: #6d4ee0;         /* premium / unlimited / special badges */
+  --violet-soft: #ece7fd;
+  --teal: #0e88a8;
+  --teal-soft: #e0f3f9;
+
+  /* Ink that sits on top of an aurora / emerald fill */
+  --on-aurora: #041014;
+
+  /* ── Semantic ── */
+  --success: #0f9d76;
+  --warning: #a06a05;
+  --danger: #c33a2f;
+  --warning-soft: #fbf0d8;
+  --danger-soft: #fbe4e2;
+
+  /* ── Structure ── */
+  --hairline: #d5dcea;
+  --hairline-strong: #b9c3d8;
+  --ring: #0e9fc4;
+
+  /* Starfield — invisible in Daybreak, felt in Aurora Signal */
+  --star: rgba(10, 14, 26, 0.16);
+  --star-bright: rgba(10, 14, 26, 0.24);
+
+  /* Glow-first elevation (soft shadows in light, glows in dark) */
+  --glow-sm: 0 1px 2px rgba(10, 14, 26, 0.06), 0 8px 20px -14px rgba(10, 14, 26, 0.28);
+  --glow-md: 0 12px 34px -18px rgba(10, 14, 26, 0.32);
+  --glow-lg: 0 26px 60px -26px rgba(10, 14, 26, 0.34);
+  --glow-aurora: 0 14px 40px -18px rgba(14, 159, 196, 0.45);
+  --glow-emerald: 0 12px 32px -16px rgba(15, 157, 118, 0.5);
+  --glow-violet: 0 12px 32px -16px rgba(109, 78, 224, 0.45);
+}
+
+.dark {
+  /* ── Surfaces — "Aurora Signal": the sky at 30,000 feet ── */
+  --night: #0a0e1a;
+  --night-deep: #060911;
+  --surface: #121828;
+  --card: #182136;
+  --card-raised: #1c2740;
+
+  --glass-fill: rgba(24, 33, 54, 0.62);
+  --glass-highlight: rgba(237, 241, 250, 0.08);
+  --glass-blur: 16px;
+
+  /* ── Ink ── */
+  --ink: #edf1fa;            /* starlight white */
+  --ink-muted: #8b94ad;
+  --ink-inverse: #0a0e1a;
+
+  /* ── Aurora — full-strength stops on night ── */
+  --aurora-1: #2ee6a8;
+  --aurora-2: #31c4e8;
+  --aurora-3: #8a6cf5;
+  --aurora: linear-gradient(100deg, var(--aurora-1) 0%, var(--aurora-2) 52%, var(--aurora-3) 100%);
+
+  --emerald: #2ee6a8;
+  --emerald-soft: rgba(46, 230, 168, 0.12);
+  --violet: #8a6cf5;
+  --violet-soft: rgba(138, 108, 245, 0.14);
+  --teal: #31c4e8;
+  --teal-soft: rgba(49, 196, 232, 0.12);
+
+  --on-aurora: #041014;      /* night ink on emerald/aurora CTAs */
+
+  /* ── Semantic ── */
+  --success: #2ee6a8;
+  --warning: #f2b84b;
+  --danger: #f0554a;
+  --warning-soft: rgba(242, 184, 75, 0.14);
+  --danger-soft: rgba(240, 85, 74, 0.14);
+
+  /* ── Structure ── */
+  --hairline: #232c45;
+  --hairline-strong: #313d5e;
+  --ring: #31c4e8;
+
+  --star: rgba(237, 241, 250, 0.34);
+  --star-bright: rgba(237, 241, 250, 0.62);
+
+  /* Glows instead of heavy shadows */
+  --glow-sm: 0 0 0 1px rgba(237, 241, 250, 0.03), 0 10px 26px -18px rgba(0, 0, 0, 0.9);
+  --glow-md: 0 18px 44px -24px rgba(0, 0, 0, 0.95);
+  --glow-lg: 0 30px 70px -30px rgba(0, 0, 0, 1);
+  --glow-aurora: 0 0 34px -6px rgba(49, 196, 232, 0.42), 0 0 90px -22px rgba(138, 108, 245, 0.4);
+  --glow-emerald: 0 0 28px -6px rgba(46, 230, 168, 0.45);
+  --glow-violet: 0 0 28px -6px rgba(138, 108, 245, 0.45);
+}
+
+@theme inline {
+  /* ── Colors → utilities (bg-night, text-ink, border-hairline, …) ── */
+  --color-night: var(--night);
+  --color-night-deep: var(--night-deep);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-raised: var(--card-raised);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-inverse: var(--ink-inverse);
+  --color-on-aurora: var(--on-aurora);
+
+  --color-aurora-1: var(--aurora-1);
+  --color-aurora-2: var(--aurora-2);
+  --color-aurora-3: var(--aurora-3);
+
+  --color-emerald: var(--emerald);
+  --color-emerald-soft: var(--emerald-soft);
+  --color-violet: var(--violet);
+  --color-violet-soft: var(--violet-soft);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-star: var(--star);
+
+  /* ── Fonts (bound to next/font CSS vars) ── */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  /* ── Radii ── */
+  --radius-chip: 999px;
+  --radius-card: 16px;
+  --radius-panel: 22px;
+  --radius-field: 14px;
+
+  /* ── Motion — calm and celestial ── */
+  --ease-signal: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-drift: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 180ms;
+  --dur-base: 220ms;
+  --dur-slow: 280ms;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  body {
+    background-color: var(--night);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: var(--aurora-2);
+    color: var(--on-aurora);
+  }
+
+  /* Focus-visible aurora ring — never removed, always 3:1 against both bases. */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* ─────────────────────────────────────────────────────────
+     Surface primitives
+     ───────────────────────────────────────────────────────── */
+
+  /* Pins the token set to its polar-night values so a band renders
+     identically in both themes (hero, footer, feature bands). */
+  .surface-night {
+    --night: #0a0e1a;
+    --night-deep: #060911;
+    --surface: #121828;
+    --card: #182136;
+    --card-raised: #1c2740;
+    --glass-fill: rgba(24, 33, 54, 0.62);
+    --glass-highlight: rgba(237, 241, 250, 0.08);
+    --ink: #edf1fa;
+    --ink-muted: #8b94ad;
+    --ink-inverse: #0a0e1a;
+    --aurora-1: #2ee6a8;
+    --aurora-2: #31c4e8;
+    --aurora-3: #8a6cf5;
+    --aurora: linear-gradient(100deg, #2ee6a8 0%, #31c4e8 52%, #8a6cf5 100%);
+    --emerald: #2ee6a8;
+    --emerald-soft: rgba(46, 230, 168, 0.12);
+    --violet: #8a6cf5;
+    --violet-soft: rgba(138, 108, 245, 0.14);
+    --teal: #31c4e8;
+    --teal-soft: rgba(49, 196, 232, 0.12);
+    --on-aurora: #041014;
+    --success: #2ee6a8;
+    --warning: #f2b84b;
+    --danger: #f0554a;
+    --hairline: #232c45;
+    --hairline-strong: #313d5e;
+    --ring: #31c4e8;
+    --star: rgba(237, 241, 250, 0.34);
+    --star-bright: rgba(237, 241, 250, 0.62);
+    background-color: var(--night);
+    color: var(--ink);
+  }
+
+  /* Frosted glass panel — low-alpha fill, hairline, soft inner highlight. */
+  .glass {
+    background-color: var(--glass-fill);
+    border: 1px solid var(--hairline);
+    box-shadow:
+      inset 0 1px 0 var(--glass-highlight),
+      var(--glow-sm);
+    backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  }
+
+  /* Aurora edge-light — a gradient hairline drawn with a mask so the
+     panel keeps its own fill. Used on the recommended plan card. */
+  .aurora-edge {
+    position: relative;
+  }
+  .aurora-edge::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: var(--aurora);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+
+  /* Perforated divider — a dashed aurora rule with two punched notches.
+     Marks the tear-line on plan cards, order summaries and eSIM wallet cards. */
+  .signal-perf {
+    position: relative;
+    border-top: 1px dashed color-mix(in oklab, var(--aurora-2) 45%, var(--hairline));
+  }
+  .signal-perf::before,
+  .signal-perf::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: var(--night);
+    transform: translateY(-50%);
+    box-shadow: inset 0 0 0 1px var(--hairline);
+  }
+  .signal-perf::before { left: -9px; }
+  .signal-perf::after { right: -9px; }
+
+  /* ─────────────────────────────────────────────────────────
+     Signature motifs
+     ───────────────────────────────────────────────────────── */
+
+  /* Starfield — an extremely subtle static scatter. Felt, not seen.
+     Three offset dot grids at different sizes; GPU-cheap, no images. */
+  .bg-starfield {
+    background-image:
+      radial-gradient(var(--star-bright) 0.6px, transparent 0.7px),
+      radial-gradient(var(--star) 0.5px, transparent 0.6px),
+      radial-gradient(var(--star) 0.5px, transparent 0.6px);
+    background-size: 190px 190px, 110px 110px, 63px 63px;
+    background-position: 0 0, 37px 61px, 84px 19px;
+  }
+
+  /* The aurora sky — a slow ambient drift across the upper band.
+     Two blurred radial washes on a single compositor layer. */
+  .bg-aurora-sky {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .bg-aurora-sky::before,
+  .bg-aurora-sky::after {
+    content: "";
+    position: absolute;
+    inset-inline: -30%;
+    top: -45%;
+    height: 130%;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(64px);
+    will-change: transform, opacity;
+  }
+  .bg-aurora-sky::before {
+    background:
+      radial-gradient(48% 60% at 22% 42%, color-mix(in oklab, var(--aurora-1) 55%, transparent) 0%, transparent 70%),
+      radial-gradient(52% 64% at 62% 30%, color-mix(in oklab, var(--aurora-2) 48%, transparent) 0%, transparent 72%);
+    opacity: 0.62;
+    animation: aurora-drift 26s var(--ease-drift) infinite alternate;
+  }
+  .bg-aurora-sky::after {
+    background:
+      radial-gradient(46% 58% at 78% 38%, color-mix(in oklab, var(--aurora-3) 55%, transparent) 0%, transparent 70%),
+      radial-gradient(40% 52% at 40% 22%, color-mix(in oklab, var(--aurora-2) 40%, transparent) 0%, transparent 74%);
+    opacity: 0.52;
+    animation: aurora-drift-alt 34s var(--ease-drift) infinite alternate;
+  }
+
+  /* Aurora hairline — the 1px gradient rule separating footer tiers. */
+  .aurora-rule {
+    height: 1px;
+    border: 0;
+    background: var(--aurora);
+    opacity: 0.55;
+  }
+
+  /* ─────────────────────────────────────────────────────────
+     Text on the aurora
+     ───────────────────────────────────────────────────────── */
+
+  /* Gradient text with a solid fallback: the color lands first, so a
+     browser without background-clip still renders readable ink. */
+  .text-aurora {
+    color: var(--aurora-2);
+  }
+  @supports (-webkit-background-clip: text) or (background-clip: text) {
+    .text-aurora {
+      background: var(--aurora);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  /* Wide-tracked uppercase micro-label — "COVERAGE", "INSTANT DELIVERY". */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .bg-aurora { background-image: var(--aurora); }
+  .border-aurora { border-image: var(--aurora) 1; }
+
+  .shadow-glow-sm { box-shadow: var(--glow-sm); }
+  .shadow-glow-md { box-shadow: var(--glow-md); }
+  .shadow-glow-lg { box-shadow: var(--glow-lg); }
+  .shadow-aurora { box-shadow: var(--glow-aurora); }
+  .shadow-emerald { box-shadow: var(--glow-emerald); }
+  .shadow-violet { box-shadow: var(--glow-violet); }
+
+  .rounded-panel { border-radius: var(--radius-panel); }
+  .rounded-field { border-radius: var(--radius-field); }
+
+  /* ── Motion primitives — every one honors reduced-motion below ── */
+  @keyframes aurora-drift {
+    0%   { transform: translate3d(-4%, 0, 0) scale(1.04); opacity: 0.5; }
+    100% { transform: translate3d(6%, 3%, 0) scale(1.12); opacity: 0.7; }
+  }
+  @keyframes aurora-drift-alt {
+    0%   { transform: translate3d(5%, 2%, 0) scale(1.1); opacity: 0.36; }
+    100% { transform: translate3d(-5%, -2%, 0) scale(1.02); opacity: 0.6; }
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes draw-arc {
+    from { stroke-dashoffset: var(--arc-len, 400); }
+    to   { stroke-dashoffset: 0; }
+  }
+  /* The pulse — a radar ring expanding from a signal point. */
+  @keyframes pulse-ring {
+    0%   { transform: scale(0.6); opacity: 0.65; }
+    70%  { transform: scale(2.1); opacity: 0; }
+    100% { transform: scale(2.1); opacity: 0; }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.55; }
+  }
+  /* A signal travelling around a card border on activation. */
+  @keyframes border-signal {
+    from { background-position: 0% 50%; }
+    to   { background-position: 200% 50%; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes shimmer {
+    from { background-position: -120% 0; }
+    to   { background-position: 220% 0; }
+  }
+
+  .animate-fade-up { animation: fade-up 0.5s var(--ease-signal) both; }
+  .animate-draw-arc { animation: draw-arc 1.2s var(--ease-signal) forwards; }
+  .animate-pulse-ring { animation: pulse-ring 2.4s var(--ease-drift) infinite; }
+  .animate-pulse-dot { animation: pulse-dot 2.4s var(--ease-drift) infinite; }
+  .animate-border-signal {
+    background-image: var(--aurora);
+    background-size: 200% 100%;
+    animation: border-signal 1.6s linear infinite;
+  }
+  .animate-marquee { animation: marquee 34s linear infinite; }
+
+  /* Skeleton loader — a dim glass outline with an aurora sweep. */
+  .skeleton {
+    background-color: color-mix(in oklab, var(--card) 70%, transparent);
+    border: 1px solid var(--hairline);
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in oklab, var(--aurora-2) 14%, transparent) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s var(--ease-drift) infinite;
+  }
+
+  [data-delay="1"] { animation-delay: 0.06s; }
+  [data-delay="2"] { animation-delay: 0.12s; }
+  [data-delay="3"] { animation-delay: 0.18s; }
+  [data-delay="4"] { animation-delay: 0.24s; }
+  [data-delay="5"] { animation-delay: 0.3s; }
+  [data-delay="6"] { animation-delay: 0.36s; }
+
+  /* Reduced motion: the aurora freezes to a static gradient, arcs are
+     drawn, pulses hold, and nothing moves. */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-draw-arc,
+    .animate-pulse-ring,
+    .animate-pulse-dot,
+    .animate-border-signal,
+    .animate-marquee,
+    .skeleton,
+    .bg-aurora-sky::before,
+    .bg-aurora-sky::after {
+      animation: none !important;
+    }
+    .animate-draw-arc { stroke-dashoffset: 0 !important; }
+    .animate-pulse-ring { opacity: 0.28 !important; transform: scale(1.5) !important; }
+    .bg-aurora-sky::before { opacity: 0.62 !important; transform: none !important; }
+    .bg-aurora-sky::after { opacity: 0.52 !important; transform: none !important; }
+  }
+}
