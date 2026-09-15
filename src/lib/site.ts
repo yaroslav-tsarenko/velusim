@@ -5,14 +5,16 @@ import { countries } from "@/lib/data/countries";
 const countriesCovered = `${Math.floor(countries.length / 10) * 10}+`;
 
 /** Company registration details. Sourced from NEXT_PUBLIC_* env vars so the
- *  legal entity can be changed without touching code. Until the entity is
- *  registered these fall back to obvious placeholders — never invent details.
+ *  legal entity can be changed without touching code. Fallbacks are the
+ *  confirmed HARTWICK VENTURES LTD registration (Companies House 17206399).
  *  NEXT_PUBLIC_ prefix is required because `site` is imported by client
  *  components (Header, checkout, footer). */
-const company = process.env.NEXT_PUBLIC_COMPANY_NAME ?? "COMPANY NAME LTD";
-const regNumber = process.env.NEXT_PUBLIC_COMPANY_NUMBER ?? "COMPANY NUMBER";
-const address = process.env.NEXT_PUBLIC_COMPANY_ADDRESS ?? "COMPANY ADDRESS";
-const supportEmail = process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? "support@velusim.com";
+const company = process.env.NEXT_PUBLIC_COMPANY_NAME ?? "HARTWICK VENTURES LTD";
+const regNumber = process.env.NEXT_PUBLIC_COMPANY_NUMBER ?? "17206399";
+const address =
+  process.env.NEXT_PUBLIC_COMPANY_ADDRESS ??
+  "Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH";
+const supportEmail = process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? "info@velusim.com";
 
 export const site = {
   name: "Velusim",

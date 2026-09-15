@@ -1,7 +1,7 @@
 /** Customer-facing legal policies, transcribed from the master text in
- *  addons/Policies.docx. The internal pre-publication checklist that
- *  follows the policies in the source document is intentionally NOT included —
- *  it is marked "not part of the customer-facing terms". */
+ *  addons/velusim-policies.md. Only the public policy bodies (between the
+ *  PUBLIC_POLICY_START/END markers) are included — the internal implementation
+ *  appendix is marked "Do not publish this appendix as policy text". */
 
 export interface PolicySection {
   heading: string;
@@ -24,15 +24,15 @@ export const policies: Policy[] = [
     slug: "terms",
     title: "Terms & Conditions",
     shortTitle: "Terms",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
-      "The contract that governs purchases from and use of velusim.com and the travel eSIM services sold by COMPANY NAME LTD.",
+      "The contract that governs purchases from and use of velusim.com and the travel eSIM services sold by HARTWICK VENTURES LTD.",
     sections: [
       {
         heading: "About Velusim and these Terms",
         clauses: [
-          "These Terms & Conditions govern purchases from and use of velusim.com (the Website) and the travel eSIM services sold by COMPANY NAME LTD (Velusim, we, us or our). COMPANY NAME LTD is a company registered under company number COMPANY NUMBER. Our registered office is COMPANY ADDRESS. Contact us at support@velusim.com.",
-          "COMPANY NAME LTD sells eSIMs in its own name and is your contractual seller. We use telecommunications infrastructure and technical contractors to deliver the service, but this does not transfer our obligations as seller to you or remove rights you have against us.",
+          "These Terms & Conditions govern purchases from and use of velusim.com (the Website) and the travel eSIM services sold by HARTWICK VENTURES LTD (Velusim, we, us or our). HARTWICK VENTURES LTD is a company registered under company number 17206399. Our registered office is Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. Contact us at info@velusim.com.",
+          "HARTWICK VENTURES LTD sells eSIMs in its own name and is your contractual seller. We use telecommunications infrastructure and technical contractors to deliver the service, but this does not transfer our obligations as seller to you or remove rights you have against us.",
           "An eSIM is a digital SIM profile installed on a compatible device. A Plan is the prepaid package of mobile data, calls and SMS described in your order. Installation means successfully downloading the eSIM profile to your device. Activation means the start of the Plan's validity period, which occurs on successful installation. A Top-up is a separately purchased addition to an eligible existing Plan or eSIM.",
           "These Terms should be read with our Refund & Cancellation Policy, Digital Delivery & Activation Policy and Acceptable Use & Fair Usage Policy. Our Privacy Policy and Cookie Policy explain personal data and website technologies; they are notices, not a blanket request for consent. Our Complaints Handling Policy explains how to raise concerns. Specific Plan features disclosed before purchase form part of your contract. Mandatory law prevails over any conflicting provision.",
         ],
@@ -69,7 +69,7 @@ export const policies: Policy[] = [
         clauses: [
           "Review the selected destination, allowances, validity, compatibility, total price and currency before placing your order. Submitting an order is your offer to buy. We accept it when we send an order acceptance or make the purchased eSIM available in your dashboard, whichever occurs first. A payment-authorisation notice alone does not mean acceptance. If an order cannot be accepted after payment has been taken, we will return the amount paid, subject to any legal restriction.",
           "We accept Visa and Mastercard. Purchases are available in EUR, GBP and USD. The final checkout amount and selected currency govern your purchase; prices displayed in different currencies need not be simple conversions of one another. Your card issuer may apply its own exchange rate or charges if your card currency differs. Such charges are not imposed by Velusim.",
-          "The total price, including any applicable taxes and unavoidable charges payable to us, will be shown before payment. COMPANY NAME LTD is not currently registered for UK VAT and does not issue UK VAT invoices. This statement is not a claim that every cross-border supply is exempt from all taxes. Any tax legally applicable to a transaction must be handled under the relevant rules and accurately reflected in the price information.",
+          "The total price, including any applicable taxes and unavoidable charges payable to us, will be shown before payment. HARTWICK VENTURES LTD is not currently registered for UK VAT and does not issue UK VAT invoices. This statement is not a claim that every cross-border supply is exempt from all taxes. Any tax legally applicable to a transaction must be handled under the relevant rules and accurately reflected in the price information.",
           "Plans and Top-ups are prepaid one-off purchases. There are no automatically renewing subscriptions or automatic Top-ups. A further purchase requires your instruction and payment authorisation. Expiry or exhaustion does not authorise us to charge for a new package automatically.",
           "We may correct genuine pricing or description errors before accepting an order and give you the choice to proceed on the corrected basis or cancel. We will not impose a higher price after acceptance without your agreement. Promotional conditions, exclusions and expiry dates will be disclosed with the offer; promotions do not reduce mandatory consumer rights.",
         ],
@@ -89,7 +89,7 @@ export const policies: Policy[] = [
       {
         heading: "Cancellation, faults and support",
         clauses: [
-          "Contact support@velusim.com to request a cancellation or refund. Our Refund & Cancellation Policy provides a 14-day request period for change-of-mind cancellations, measured from the day after the purchase contract is concluded. An uninstalled and unused eSIM is eligible for a full refund under that policy. Installed Plans and technical faults are assessed as described there, with mandatory rights preserved.",
+          "Contact info@velusim.com to request a cancellation or refund. Our Refund & Cancellation Policy provides a 14-day request period for change-of-mind cancellations, measured from the day after the purchase contract is concluded. An uninstalled and unused eSIM is eligible for a full refund under that policy. Installed Plans and technical faults are assessed as described there, with mandatory rights preserved.",
           "Where applicable consumer law requires an express request to begin a service during a cancellation period, we must obtain that request before beginning early performance. Installation or supply of a QR code does not by itself waive all cancellation rights. Any lawful payment for service already supplied must be proportionate, and the loss of a statutory cancellation right on full performance requires the conditions imposed by applicable law to be satisfied.",
           "Report delivery, installation or connectivity problems promptly so we can investigate while useful diagnostic information is available. We may request relevant device settings, an error message, the eSIM identifier and approximate location, but not your account password, full card details or card security code. Troubleshooting must be reasonable and must not be used to obstruct a cancellation or remedy.",
           "We will provide the remedies required by applicable law when a service is faulty, misdescribed or not supplied as agreed. Depending on the circumstances, this may include correction, repeat performance, an agreed replacement, a price reduction or a refund. A general network disclaimer does not remove those rights.",
@@ -117,7 +117,7 @@ export const policies: Policy[] = [
         clauses: [
           "Changes to these policies will be identified by an updated date. The version agreed when an order is accepted governs that order. We will not use a later revision to retroactively reduce purchased allowances or mandatory rights. If a material change to an existing service is necessary, we will give any notice, explanation and cancellation rights required by law.",
           "These Terms are governed by the laws of England and Wales, without depriving a consumer of mandatory protections available under the law of their habitual residence where applicable. Courts of England and Wales have jurisdiction, but this does not prevent a consumer from using another court available to them under mandatory law. Nothing requires you to waive a lawful complaint, chargeback, regulatory report or access to justice.",
-          "If a provision is unenforceable, the remaining provisions continue to apply so far as legally possible. A delay in enforcing a right does not waive it. We may transfer the contract only without reducing your rights and with any notice or consent required by law. Contact COMPANY NAME LTD at support@velusim.com or our registered office above. Our Complaints Handling Policy explains the review process.",
+          "If a provision is unenforceable, the remaining provisions continue to apply so far as legally possible. A delay in enforcing a right does not waive it. We may transfer the contract only without reducing your rights and with any notice or consent required by law. Contact HARTWICK VENTURES LTD at info@velusim.com or our registered office above. Our Complaints Handling Policy explains the review process.",
         ],
       },
     ],
@@ -126,14 +126,14 @@ export const policies: Policy[] = [
     slug: "refund-cancellation",
     title: "Refund & Cancellation Policy",
     shortTitle: "Refund Policy",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
       "How change-of-mind cancellations work, the 14-day request period, and remedies for faulty or undelivered eSIMs.",
     sections: [
       {
         heading: "Scope and contact",
         clauses: [
-          "This policy applies to eSIMs and Top-ups purchased directly from COMPANY NAME LTD through velusim.com. COMPANY NAME LTD, company number COMPANY NUMBER, is the seller. Our registered office is COMPANY ADDRESS. Send refund and cancellation requests to support@velusim.com.",
+          "This policy applies to eSIMs and Top-ups purchased directly from HARTWICK VENTURES LTD through velusim.com. HARTWICK VENTURES LTD, company number 17206399, is the seller. Our registered office is Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. Send refund and cancellation requests to info@velusim.com.",
           "This policy distinguishes change-of-mind cancellations from remedies for faulty, misdescribed or undelivered services. It does not exclude mandatory consumer rights. The 14-day period below is not a universal deadline for reporting faults, unauthorised payments or other legal claims.",
         ],
       },
@@ -177,8 +177,8 @@ export const policies: Policy[] = [
       {
         heading: "How to send your request",
         clauses: [
-          "Email support@velusim.com with your name, order email, order number if available, the Plan concerned and a clear statement that you wish to cancel or request a refund. A reason helps with a fault investigation but is not required to exercise an applicable change-of-mind cancellation right. No particular subject line or form is compulsory. If email is unavailable, you may send a clear cancellation notice to our registered office; mandatory rights to notify us by other effective means are preserved.",
-          "You may use the following optional cancellation wording: \"To COMPANY NAME LTD, COMPANY ADDRESS; support@velusim.com. I/We hereby give notice that I/We cancel my/our contract for the supply of the following service: [identify service]. Ordered on: [date]. Order reference: [if available]. Name of consumer(s): [name]. Address of consumer(s): [address]. Date: [date]. Signature of consumer(s): [only if sent on paper].\" Delete whichever wording does not apply.",
+          "Email info@velusim.com with your name, order email, order number if available, the Plan concerned and a clear statement that you wish to cancel or request a refund. A reason helps with a fault investigation but is not required to exercise an applicable change-of-mind cancellation right. No particular subject line or form is compulsory. If email is unavailable, you may send a clear cancellation notice to our registered office; mandatory rights to notify us by other effective means are preserved.",
+          "You may use the following optional cancellation wording: \"To HARTWICK VENTURES LTD, Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH; info@velusim.com. I/We hereby give notice that I/We cancel my/our contract for the supply of the following service: [identify service]. Ordered on: [date]. Order reference: [if available]. Name of consumer(s): [name]. Address of consumer(s): [address]. Date: [date]. Signature of consumer(s): [only if sent on paper].\" Delete whichever wording does not apply.",
         ],
       },
     ],
@@ -187,14 +187,14 @@ export const policies: Policy[] = [
     slug: "delivery-activation",
     title: "Digital Delivery & Activation Policy",
     shortTitle: "Delivery & Activation",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
       "How your eSIM is delivered electronically, what to do if credentials are missing, and when your Plan's validity begins.",
     sections: [
       {
         heading: "Electronic fulfilment",
         clauses: [
-          "COMPANY NAME LTD, company number COMPANY NUMBER, supplies the eSIMs sold at velusim.com electronically. Our registered office is COMPANY ADDRESS. Delivery and installation support is available at support@velusim.com. No physical SIM, parcel or postal delivery is included.",
+          "HARTWICK VENTURES LTD, company number 17206399, supplies the eSIMs sold at velusim.com electronically. Our registered office is Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. Delivery and installation support is available at info@velusim.com. No physical SIM, parcel or postal delivery is included.",
           "Following a successful order, your QR code and installation instructions are made available in your account dashboard and sent to the email address used for the order. We also provide order information identifying the purchased Plan. Keep your confirmation and the policy version supplied with your purchase for future reference.",
           "Fulfilment is intended to occur promptly after successful payment and order processing. Payment verification, security checks, technical provisioning or email delivery problems may cause a delay. We will not represent an unfulfilled order as successfully delivered merely because payment was authorised. Any specific delivery time shown before purchase forms part of the order information.",
         ],
@@ -238,14 +238,14 @@ export const policies: Policy[] = [
     slug: "privacy",
     title: "Privacy Policy",
     shortTitle: "Privacy",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
-      "What personal information COMPANY NAME LTD processes, why, the legal bases, sharing, retention, and your rights.",
+      "What personal information HARTWICK VENTURES LTD processes, why, the legal bases, sharing, retention, and your rights.",
     sections: [
       {
         heading: "Who is responsible for your information",
         clauses: [
-          "COMPANY NAME LTD is the controller of personal information used to operate velusim.com, manage customer accounts, sell eSIMs and handle related customer communications. Our company number is COMPANY NUMBER and our registered office is COMPANY ADDRESS. For privacy matters or to exercise a right, email support@velusim.com and identify your request as a privacy matter.",
+          "HARTWICK VENTURES LTD is the controller of personal information used to operate velusim.com, manage customer accounts, sell eSIMs and handle related customer communications. Our company number is 17206399 and our registered office is Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. For privacy matters or to exercise a right, email info@velusim.com and identify your request as a privacy matter.",
           "This policy explains the processing associated with our Website and services. It does not mean that every category of information described below is collected from every visitor. The information needed depends on whether you browse, create an account, purchase a Plan, use a particular feature or contact support. A specific collection notice will supplement this policy where an additional process requires further information.",
         ],
       },
@@ -276,7 +276,7 @@ export const policies: Policy[] = [
           "We disclose information only as relevant to the purpose to categories of recipients such as payment-processing and card-network organisations; eSIM provisioning and telecommunications network operators; hosting, security and technical-support contractors; email delivery and customer-support contractors; professional advisers; and competent authorities where disclosure is lawful. Optional analytics or advertising recipients, if enabled, must be covered by the relevant notice and consent arrangements. We do not sell your personal information.",
           "Recipients acting on our instructions must be subject to appropriate contractual and security requirements. Some recipients, particularly telecommunications networks, payment organisations and authorities, may determine their own legally permitted purposes and act as independent controllers. Their involvement does not remove Velusim's responsibility for its own collection, disclosures and controller obligations.",
           "Travel connectivity can require information to be processed in your destination and in countries where relevant networks or technical recipients operate. A UK registered office does not mean all data stays in the UK. Where a restricted international transfer is involved, a valid legal transfer mechanism is required, such as applicable adequacy arrangements or approved contractual safeguards with any necessary supplementary measures. We do not treat acceptance of these Terms as blanket consent to unrestricted international transfers.",
-          "You may ask support@velusim.com which recipients, destination countries and transfer arrangements are relevant to your service and request information about applicable safeguards. We will provide the information required by law, including access to a copy of safeguards where applicable, with necessary protection for confidential information. Additional destination-specific privacy information will be provided where required.",
+          "You may ask info@velusim.com which recipients, destination countries and transfer arrangements are relevant to your service and request information about applicable safeguards. We will provide the information required by law, including access to a copy of safeguards where applicable, with necessary protection for confidential information. Additional destination-specific privacy information will be provided where required.",
         ],
       },
       {
@@ -292,15 +292,15 @@ export const policies: Policy[] = [
         heading: "Your rights and choices",
         clauses: [
           "Depending on the applicable law and circumstances, you may request access to your information, correction of inaccurate data, erasure, restriction of processing and a portable copy of data where the portability right applies. These rights are not absolute; for example, some transaction information may need to be retained to meet a legal obligation or defend a claim. We will explain a refusal or limitation and available complaint routes.",
-          "You have the right to object to processing based on legitimate interests where the applicable conditions are met. You can object to direct marketing at any time, including associated profiling. We will stop processing for direct marketing when you object. Use the unsubscribe mechanism in the message or email support@velusim.com. Necessary order, security and service communications are not marketing and may still be sent.",
+          "You have the right to object to processing based on legitimate interests where the applicable conditions are met. You can object to direct marketing at any time, including associated profiling. We will stop processing for direct marketing when you object. Use the unsubscribe mechanism in the message or email info@velusim.com. Necessary order, security and service communications are not marketing and may still be sent.",
           "You may withdraw consent at any time without affecting the lawfulness of processing before withdrawal. For optional technologies, use the Website's consent controls where provided or the further options explained in our Cookie Policy. You do not have to accept optional marketing to buy an eSIM.",
-          "Send rights requests to support@velusim.com. We may ask for proportionate verification, without demanding unnecessary identity documents. Requests are generally free and will be handled without undue delay within the applicable legal time limit, normally one month, subject to lawful extensions and procedural rules. We will explain any permitted extension, fee or refusal. You may also ask for an explanation and human review of an automated eligibility or fraud decision affecting you; additional safeguards apply where required by law.",
+          "Send rights requests to info@velusim.com. We may ask for proportionate verification, without demanding unnecessary identity documents. Requests are generally free and will be handled without undue delay within the applicable legal time limit, normally one month, subject to lawful extensions and procedural rules. We will explain any permitted extension, fee or refusal. You may also ask for an explanation and human review of an automated eligibility or fraud decision affecting you; additional safeguards apply where required by law.",
         ],
       },
       {
         heading: "Complaints, children and updates",
         clauses: [
-          "If you believe your information has been mishandled, email support@velusim.com. We will acknowledge a data protection complaint within 30 days, take appropriate steps to investigate it and communicate the outcome without undue delay. A complaint and a request to exercise a data right have different legal requirements; making one does not cancel the other. Our Complaints Handling Policy provides further details.",
+          "If you believe your information has been mishandled, email info@velusim.com. We will acknowledge a data protection complaint within 30 days, take appropriate steps to investigate it and communicate the outcome without undue delay. A complaint and a request to exercise a data right have different legal requirements; making one does not cancel the other. Our Complaints Handling Policy provides further details.",
           "You can complain to the UK Information Commissioner's Office at ico.org.uk/make-a-complaint/ or to another competent data protection authority where applicable, including the authority in your EEA country of residence. We encourage you to contact us first so we can address the issue, but do not make that a waiver of rights available under law.",
           "Our services are restricted to people aged 18 and over and are not directed to children. If you believe an under-18 account or purchase has resulted in inappropriate collection of personal information, contact us. We will assess the circumstances and take appropriate action, retaining only information needed for a lawful purpose such as addressing the incident or resolving the transaction.",
           "We will update this policy when relevant practices or legal requirements change and identify the revision date. Material new processing may require a specific notice or new consent before it begins. Continued use alone does not supply any consent the law requires us to obtain separately.",
@@ -312,14 +312,14 @@ export const policies: Policy[] = [
     slug: "cookies",
     title: "Cookie Policy",
     shortTitle: "Cookies",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
       "The cookies and similar technologies used on velusim.com, which are necessary or optional, and how to control them.",
     sections: [
       {
         heading: "Scope and responsibility",
         clauses: [
-          "This Cookie Policy explains cookies and similar storage or access technologies associated with velusim.com. The Website is operated by COMPANY NAME LTD, company number COMPANY NUMBER, at COMPANY ADDRESS. Questions can be sent to support@velusim.com. Our Privacy Policy explains the handling of personal information more generally.",
+          "This Cookie Policy explains cookies and similar storage or access technologies associated with velusim.com. The Website is operated by HARTWICK VENTURES LTD, company number 17206399, at Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. Questions can be sent to info@velusim.com. Our Privacy Policy explains the handling of personal information more generally.",
           "Cookies are small records stored in a browser or device. Related technologies can include browser storage, pixels and identifiers used to remember information or recognise an interaction. Similar legal rules can apply even where a technology is not called a cookie. A first-party or third-party label does not by itself determine whether consent is required.",
         ],
       },
@@ -336,7 +336,7 @@ export const policies: Policy[] = [
         heading: "Your choices",
         clauses: [
           "Where optional technologies are offered, the Website's consent interface must let you accept or reject optional use and change relevant category choices without treating rejection as acceptance. Necessary functions remain subject to their legal exemption. Withdrawal should be as easy as giving consent and does not affect the lawfulness of previous processing.",
-          "Use the cookie or privacy settings available on the Website to review or withdraw choices. If you cannot locate or use the control, email support@velusim.com for assistance. Your browser can also block or delete cookies and manage site storage. Blocking necessary storage may prevent sign-in or checkout; refusal of optional tracking should not prevent access to the basic purchase service.",
+          "Use the cookie or privacy settings available on the Website to review or withdraw choices. If you cannot locate or use the control, email info@velusim.com for assistance. Your browser can also block or delete cookies and manage site storage. Blocking necessary storage may prevent sign-in or checkout; refusal of optional tracking should not prevent access to the basic purchase service.",
           "Choices may be specific to a browser or device. Clearing storage, changing browser or using another device can remove a stored choice, so the Website may ask again. Removing a cookie is not always the same as withdrawing consent for future use; update the relevant consent setting as well where available.",
         ],
       },
@@ -345,7 +345,7 @@ export const policies: Policy[] = [
         clauses: [
           "Session storage normally lasts for the session, while persistent storage remains until its configured expiry or deletion, subject to browser behaviour. There is no single retention period for all cookies. The live cookie information must identify the technologies in use, their purpose, responsible organisation or sufficiently specific recipient category, duration and the applicable choice.",
           "Where a technology causes information to be disclosed to a payment, security, technical, analytics or advertising recipient, that disclosure must be explained and have an appropriate legal basis. Only categories actually used apply. If the processing involves personal information or an international transfer, the safeguards and rights described in the Privacy Policy also apply. Optional tracking consent is not permission for unrelated processing.",
-          "We will review this policy when the Website's technologies change and update the information and consent arrangements before introducing uses requiring a new choice. For information about a specific technology or to raise a concern, contact support@velusim.com. Our Privacy Policy and Complaints Handling Policy describe the available rights and complaint routes.",
+          "We will review this policy when the Website's technologies change and update the information and consent arrangements before introducing uses requiring a new choice. For information about a specific technology or to raise a concern, contact info@velusim.com. Our Privacy Policy and Complaints Handling Policy describe the available rights and complaint routes.",
         ],
       },
     ],
@@ -354,14 +354,14 @@ export const policies: Policy[] = [
     slug: "acceptable-use",
     title: "Acceptable Use & Fair Usage Policy",
     shortTitle: "Acceptable Use",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
       "The rules for lawful use of Velusim eSIMs and networks, how allowances and Unlimited Plans work, and enforcement.",
     sections: [
       {
         heading: "Purpose and scope",
         clauses: [
-          "This policy covers COMPANY NAME LTD's eSIMs, Plans, Top-ups, accounts and Website at velusim.com. Company number: COMPANY NUMBER. Registered office: COMPANY ADDRESS. For permitted-use enquiries or restrictions, contact support@velusim.com.",
+          "This policy covers HARTWICK VENTURES LTD's eSIMs, Plans, Top-ups, accounts and Website at velusim.com. Company number: 17206399. Registered office: Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. For permitted-use enquiries or restrictions, contact info@velusim.com.",
           "Read this policy with the Terms & Conditions and your Plan description. It protects lawful use and network integrity without creating undisclosed limits, permitting arbitrary cancellation or reducing mandatory rights. Services are restricted to users aged 18 and over.",
         ],
       },
@@ -397,7 +397,7 @@ export const policies: Policy[] = [
           "We may investigate reasonably suspected prohibited use using lawfully available information, subject to the Privacy Policy and telecommunications confidentiality rules. This is not an unrestricted right to inspect private communications.",
           "Depending on the risk, we may issue a warning, request that the activity stop, restrict the affected feature or temporarily suspend the relevant account or eSIM. We will use a proportionate response and give an explanation and opportunity to correct the issue where practicable. Immediate restriction may be necessary to prevent harm or comply with law, and some details may be legally restricted.",
           "We may terminate an affected service for a serious or repeated material breach where justified. Refunds, any lawful deductions and the treatment of remaining prepaid service will be assessed under the Refund & Cancellation Policy and applicable law. We do not impose an automatic forfeiture of every purchase or a punitive fee simply because an account was reviewed.",
-          "To challenge a restriction, email support@velusim.com with the order reference and explanation. We will review it and restore service where appropriate. Further review follows the Complaints Handling Policy. Lawful refunds, complaints and payment disputes are not prohibited use.",
+          "To challenge a restriction, email info@velusim.com with the order reference and explanation. We will review it and restore service where appropriate. Further review follows the Complaints Handling Policy. Lawful refunds, complaints and payment disputes are not prohibited use.",
         ],
       },
     ],
@@ -406,14 +406,14 @@ export const policies: Policy[] = [
     slug: "complaints",
     title: "Complaints Handling Policy",
     shortTitle: "Complaints",
-    lastUpdated: "31 August 2026",
+    lastUpdated: "15 September 2026",
     summary:
-      "How to raise a complaint with COMPANY NAME LTD, how it is investigated, time limits, and independent routes available to you.",
+      "How to raise a complaint with HARTWICK VENTURES LTD, how it is investigated, time limits, and independent routes available to you.",
     sections: [
       {
         heading: "Who handles complaints",
         clauses: [
-          "COMPANY NAME LTD handles complaints about purchases and services sold through velusim.com. Our company number is COMPANY NUMBER. Our registered office is COMPANY ADDRESS. Email support@velusim.com to complain about an order, payment, eSIM, connection, customer-support interaction or privacy matter.",
+          "HARTWICK VENTURES LTD handles complaints about purchases and services sold through velusim.com. Our company number is 17206399. Our registered office is Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH. Email info@velusim.com to complain about an order, payment, eSIM, connection, customer-support interaction or privacy matter.",
           "We will consider complaints fairly, take reasonable and proportionate steps to investigate them and explain the outcome. Making a complaint does not waive your consumer, privacy, payment-dispute or court rights. We do not charge a fee merely for receiving and investigating a complaint.",
         ],
       },
@@ -429,7 +429,7 @@ export const policies: Policy[] = [
         heading: "Investigation and communication",
         clauses: [
           "We will acknowledge the complaint promptly, request any information reasonably needed and take active steps towards resolution. We will explain the next steps and provide updates where investigation cannot be completed immediately.",
-          "We may review the Plan description, fulfilment and installation information, relevant usage, technical and payment records, and earlier correspondence. We may consult involved technical or network organisations, but COMPANY NAME LTD remains responsible for addressing its own contractual obligations.",
+          "We may review the Plan description, fulfilment and installation information, relevant usage, technical and payment records, and earlier correspondence. We may consult involved technical or network organisations, but HARTWICK VENTURES LTD remains responsible for addressing its own contractual obligations.",
           "We will work to resolve the complaint without undue delay and within applicable legal deadlines. If it takes longer, we will explain the outstanding issue and expected next step. Please respond to reasonable information requests; an unanswered request does not automatically extinguish a legal claim.",
           "Our outcome will explain the decision, reasons and any remedy, such as technical correction, an agreed replacement, refund or price adjustment. If we consider no remedy due, we will explain why and how to request a review.",
         ],
@@ -444,7 +444,7 @@ export const policies: Policy[] = [
       {
         heading: "Review and independent routes",
         clauses: [
-          "If you disagree with our response, reply to support@velusim.com and request a review, identifying what you believe was missed or decided incorrectly. We will arrange an appropriate reconsideration, by another responsible person where practicable, and explain the result. An internal review is not a condition that overrides access to an independent route available under law.",
+          "If you disagree with our response, reply to info@velusim.com and request a review, identifying what you believe was missed or decided incorrectly. We will arrange an appropriate reconsideration, by another responsible person where practicable, and explain the result. An internal review is not a condition that overrides access to an independent route available under law.",
           "Where your complaint is covered by mandatory telecommunications alternative dispute resolution requirements, we will provide the information and access required by those rules. Under applicable UK telecommunications rules, eligible unresolved complaints can generally be referred after six weeks from the initial complaint, or earlier following a deadlock notice. We will identify the relevant route and provide any required notice for a qualifying complaint. This policy does not claim membership of a particular scheme or remove any obligation to participate where required.",
           "For privacy concerns, you may complain to the UK Information Commissioner's Office through ico.org.uk/make-a-complaint/ or another competent authority where applicable. For other matters, you may use consumer-protection, card-issuer, regulatory or court routes available to you. A regulator may not determine an individual contractual claim; the appropriate route depends on the issue.",
         ],
