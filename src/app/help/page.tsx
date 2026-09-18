@@ -65,8 +65,11 @@ export default function HelpPage() {
               <a href={`mailto:${site.supportEmail}`} className="mt-5 inline-flex h-12 items-center gap-2 rounded-full bg-aurora px-6 font-medium text-on-aurora hover:brightness-[1.06]">
                 <Pulse className="size-4" /> Email support
               </a>
+              <p className="mt-4 text-sm text-ink-muted">
+                Prefer to call? <a href={site.phoneHref} className="text-emerald hover:underline">{site.phone}</a>
+              </p>
               <dl className="mt-8 space-y-4 text-sm">
-                <div id="about"><dt className="eyebrow">About</dt><dd className="mt-1 text-ink-muted">{site.name} is operated by {site.company}, connecting curious travellers in {site.countriesCovered} countries. Registered office: {site.address} · Reg. no. {site.regNumber} · <a href={`mailto:${site.supportEmail}`} className="text-emerald hover:underline">{site.supportEmail}</a>.</dd></div>
+                <div id="about"><dt className="eyebrow">About</dt><dd className="mt-1 text-ink-muted">{site.name} is operated by {site.company}, connecting curious travellers in {site.countriesCovered} countries. Registered office: {site.address} · Reg. no. {site.regNumber} · <a href={site.phoneHref} className="text-emerald hover:underline">{site.phone}</a> · <a href={`mailto:${site.supportEmail}`} className="text-emerald hover:underline">{site.supportEmail}</a>.</dd></div>
                 <div id="refunds"><dt className="eyebrow">Refunds</dt><dd className="mt-1 text-ink-muted">If we can&apos;t get you online and it&apos;s on us, you&apos;re covered by our refund policy. <Link href="/legal/refund-cancellation" className="text-emerald hover:underline">Read the full policy</Link>.</dd></div>
                 <div id="privacy"><dt className="eyebrow">Privacy</dt><dd className="mt-1 text-ink-muted">We collect only what&apos;s needed to deliver your eSIM and never sell your data. <Link href="/legal/privacy" className="text-emerald hover:underline">Read the privacy policy</Link>.</dd></div>
                 <div id="terms"><dt className="eyebrow">Terms</dt><dd className="mt-1 text-ink-muted">Using {site.name} means you accept our terms of service, including eSIM activation and fair-use conditions. <Link href="/legal/terms" className="text-emerald hover:underline">Read the terms</Link>.</dd></div>

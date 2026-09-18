@@ -4,17 +4,14 @@ import { countries } from "@/lib/data/countries";
  *  never overstates the number of destinations actually on sale. */
 const countriesCovered = `${Math.floor(countries.length / 10) * 10}+`;
 
-/** Company registration details. Sourced from NEXT_PUBLIC_* env vars so the
- *  legal entity can be changed without touching code. Fallbacks are the
- *  confirmed HARTWICK VENTURES LTD registration (Companies House 17206399).
- *  NEXT_PUBLIC_ prefix is required because `site` is imported by client
- *  components (Header, checkout, footer). */
-const company = process.env.NEXT_PUBLIC_COMPANY_NAME ?? "HARTWICK VENTURES LTD";
-const regNumber = process.env.NEXT_PUBLIC_COMPANY_NUMBER ?? "17206399";
-const address =
-  process.env.NEXT_PUBLIC_COMPANY_ADDRESS ??
-  "Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH";
-const supportEmail = process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? "info@velusim.com";
+/** Confirmed HARTWICK VENTURES LTD registration (Companies House 17206399),
+ *  hardcoded as the single source of truth for the legal entity. */
+const company = "HARTWICK VENTURES LTD";
+const regNumber = "17206399";
+const address = "Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH";
+const supportEmail = "info@velusim.com";
+const phone = "+44 7476 928624";
+const phoneHref = "tel:+447476928624";
 
 export const site = {
   name: "Velusim",
@@ -27,6 +24,8 @@ export const site = {
   homeCity: "London",
   homeCoords: "51.5072° N · 0.1276° W",
   supportEmail,
+  phone,
+  phoneHref,
   countriesCovered,
 } as const;
 

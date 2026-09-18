@@ -110,7 +110,10 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-5 py-6 text-xs text-ink-muted sm:px-8 md:flex-row md:items-center md:justify-between">
         <p className="text-pretty">
           © {new Date().getFullYear()} {site.company} · Reg. no. {site.regNumber} · {site.address} ·{" "}
-          {site.supportEmail}. All rights reserved.
+          <a href={site.phoneHref} className="transition-colors duration-[var(--dur-fast)] hover:text-emerald">
+            {site.phone}
+          </a>{" "}
+          · {site.supportEmail}. All rights reserved.
         </p>
         <nav aria-label="Legal" className="flex flex-wrap gap-4">
           <FooterLink href="/legal/privacy">Privacy</FooterLink>
