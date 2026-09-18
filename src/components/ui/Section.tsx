@@ -9,6 +9,9 @@ interface SectionProps {
   starfield?: boolean;
   /** Adds the ambient aurora wash across the top of the band. */
   aurora?: boolean;
+  /** Lets absolutely-positioned children (e.g. a search dropdown) escape the
+   *  band instead of being clipped by the default `overflow-hidden`. */
+  overflowVisible?: boolean;
   id?: string;
 }
 
@@ -24,12 +27,19 @@ export function Section({
   band = "night",
   starfield,
   aurora,
+  overflowVisible,
   id,
 }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn("relative overflow-hidden", bands[band], aurora && "bg-aurora-sky", className)}
+      className={cn(
+        "relative",
+        overflowVisible ? "overflow-visible" : "overflow-hidden",
+        bands[band],
+        aurora && "bg-aurora-sky",
+        className,
+      )}
     >
       {starfield ? (
         <div className="pointer-events-none absolute inset-0 bg-starfield opacity-70" aria-hidden />

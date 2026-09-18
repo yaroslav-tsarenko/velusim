@@ -4,7 +4,7 @@ import { Pulse } from "@/components/ui/icons";
 
 export function FinalCta() {
   return (
-    <Section band="deep" starfield aurora>
+    <Section band="deep" starfield aurora overflowVisible>
       <Container className="py-20 text-center sm:py-24">
         <p className="eyebrow inline-flex items-center justify-center gap-2">
           <Pulse className="size-4 text-emerald" />
