@@ -4,20 +4,20 @@ export function cn(...parts: Array<string | false | null | undefined>): string {
   return parts.filter(Boolean).join(" ");
 }
 
-/** Prices in the catalogue are stored in USD; these are display-only rates. */
-const RATES: Record<CurrencyCode, number> = { USD: 1, EUR: 0.92, GBP: 0.79 };
-const SYMBOLS: Record<CurrencyCode, string> = { USD: "$", EUR: "€", GBP: "£" };
+/** Prices in the catalogue and billing are in EUR (€). */
+const RATES: Record<CurrencyCode, number> = { EUR: 1 };
+const SYMBOLS: Record<CurrencyCode, string> = { EUR: "€" };
 
-export function formatPrice(usd: number, currency: CurrencyCode = "USD"): string {
-  const value = usd * RATES[currency];
+export function formatPrice(amount: number, currency: CurrencyCode = "EUR"): string {
+  const value = amount * RATES[currency];
   return `${SYMBOLS[currency]}${value.toFixed(2)}`;
 }
 
-/** Format a USD-base amount stored in cents into the selected currency. */
-export function formatCents(cents: number, currency: CurrencyCode = "USD"): string {
+/** Format an amount stored in cents into the selected currency. */
+export function formatCents(cents: number, currency: CurrencyCode = "EUR"): string {
   return formatPrice(cents / 100, currency);
 }
 
-export function currencySymbol(currency: CurrencyCode): string {
+export function currencySymbol(currency: CurrencyCode = "EUR"): string {
   return SYMBOLS[currency];
 }

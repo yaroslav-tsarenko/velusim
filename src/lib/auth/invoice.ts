@@ -5,6 +5,12 @@ import { site } from "@/lib/site";
 export interface InvoiceData {
   orderRef: string;
   email: string;
+  customerName?: string;
+  customerAddress?: string;
+  customerCity?: string;
+  customerPostalCode?: string;
+  customerCountry?: string;
+  currency?: string;
   title: string;
   dataLabel: string;
   days: number;
@@ -12,7 +18,12 @@ export interface InvoiceData {
   issuedAt: Date;
 }
 
-const money = (cents: number) => `$${(cents / 100).toFixed(2)}`;
+const formatMoney = (cents: number, currency: string = "EUR") => {
+  const symbol = currency === "EUR" ? "€" : "$";
+  return `${symbol}${(cents / 100).toFixed(2)}`;
+};
+
+const money = (cents: number) => formatMoney(cents, "EUR");
 
 /** Generates a branded A4 PDF invoice and returns the raw bytes. */
 export async function generateInvoicePdf(data: InvoiceData): Promise<Uint8Array> {
@@ -56,8 +67,21 @@ export async function generateInvoicePdf(data: InvoiceData): Promise<Uint8Array>
   // Bill to
   text("BILLED TO", M, y, bold, 8, muted);
   y -= 14;
-  text(data.email, M, y, font, 11, ink);
-  y -= 30;
+  if (data.customerName) {
+    text(data.customerName, M, y, bold, 10, ink);
+    y -= 13;
+  }
+  text(data.email, M, y, font, 9, ink);
+  y -= 13;
+  if (data.customerAddress) {
+    text(`${data.customerAddress}, ${data.customerCity || ""} ${data.customerPostalCode || ""}`.trim(), M, y, font, 9, muted);
+    y -= 13;
+  }
+  if (data.customerCountry) {
+    text(data.customerCountry, M, y, font, 9, muted);
+    y -= 13;
+  }
+  y -= 14;
 
   // Table header
   page.drawLine({ start: { x: M, y }, end: { x: 595 - M, y }, thickness: 1, color: hair });
@@ -68,7 +92,7 @@ export async function generateInvoicePdf(data: InvoiceData): Promise<Uint8Array>
 
   // Line item
   text(data.title, M, y, font, 11, ink);
-  right(money(data.priceCents), 595 - M, y, font, 11, ink);
+  right(formatMoney(data.priceCents, data.currency), 595 - M, y, font, 11, ink);
   y -= 15;
   text(`${data.dataLabel} · ${data.days} days validity · eSIM data plan`, M, y, font, 9, muted);
   y -= 22;
@@ -77,7 +101,7 @@ export async function generateInvoicePdf(data: InvoiceData): Promise<Uint8Array>
 
   // Total
   right("Total paid", 460, y, bold, 11, ink);
-  right(money(data.priceCents), 595 - M, y, bold, 13, emerald);
+  right(formatMoney(data.priceCents, data.currency), 595 - M, y, bold, 13, emerald);
   y -= 40;
 
   text("Payment received. This eSIM has been issued and delivered by email.", M, y, font, 9, muted);

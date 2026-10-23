@@ -31,12 +31,12 @@ function getInitialTheme(): Theme {
 
 export function PreferencesProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
-  const [currency, setCurrency] = useState<CurrencyCode>("GBP");
+  const [currency, setCurrency] = useState<CurrencyCode>("EUR");
 
-  // Hydrate currency from storage on mount.
+  // Hydrate currency from storage on mount (locking to EUR).
   useEffect(() => {
-    const cur = localStorage.getItem("velusim:currency") as CurrencyCode | null;
-    if (cur) setCurrency(cur);
+    localStorage.setItem("velusim:currency", "EUR");
+    setCurrency("EUR");
   }, []);
 
   useEffect(() => {

@@ -91,4 +91,38 @@ async function createSchema(): Promise<void> {
       created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
     )
   `;
+  await db`
+    CREATE TABLE IF NOT EXISTS orders (
+      id                   BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+      transaction_ref      TEXT NOT NULL UNIQUE,
+      user_id              BIGINT REFERENCES users(id) ON DELETE SET NULL,
+      amount_cents         BIGINT NOT NULL,
+      currency             TEXT NOT NULL DEFAULT 'EUR',
+      plan_id              TEXT NOT NULL,
+      plan_title           TEXT NOT NULL,
+      plan_data            TEXT NOT NULL,
+      plan_days            INTEGER NOT NULL,
+      status               TEXT NOT NULL DEFAULT 'pending',
+      customer_first_name  TEXT NOT NULL,
+      customer_last_name   TEXT NOT NULL,
+      customer_email       TEXT NOT NULL,
+      customer_phone       TEXT NOT NULL,
+      customer_country     TEXT NOT NULL,
+      customer_street      TEXT NOT NULL,
+      customer_city        TEXT NOT NULL,
+      customer_postal_code TEXT NOT NULL,
+      provider_invoice_id  TEXT,
+      hpp_url              TEXT,
+      payment_requested_at TIMESTAMPTZ,
+      completed_at         TIMESTAMPTZ,
+      failed_at            TIMESTAMPTZ,
+      credits_reversed_at  TIMESTAMPTZ,
+      raw_provider_status  TEXT,
+      esim_activation_code TEXT,
+      esim_smdp_address    TEXT,
+      created_at           TIMESTAMPTZ NOT NULL DEFAULT now(),
+      updated_at           TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `;
 }
+

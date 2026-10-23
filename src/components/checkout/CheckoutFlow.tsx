@@ -4,28 +4,47 @@ import { useState } from "react";
 import Link from "next/link";
 import type { PlanSummary } from "@/lib/data/summary";
 import type { OrderResult } from "@/lib/api/client";
-import { placeOrder, payWithBalance } from "@/app/checkout/actions";
+import { payWithBalance, createCorefyPayment } from "@/app/checkout/actions";
 import { Price } from "@/components/ui/Price";
 import { PaymentMarks } from "@/components/ui/PaymentMarks";
 import { InstallSteps } from "@/components/how/InstallSteps";
 import { usePreferences } from "@/components/providers/Preferences";
 import { QrCode } from "./QrCode";
-import { Pulse, Check, Bolt, ArrowRight } from "@/components/ui/icons";
+import { Pulse, Check, Bolt, ArrowRight, Shield } from "@/components/ui/icons";
 import { site } from "@/lib/site";
 import { cn, formatCents } from "@/lib/utils";
+import { addressCountries } from "@/lib/auth/countries";
 
-type Stage = "form" | "processing" | "done";
+type Stage = "form" | "redirecting" | "done";
 type Method = "card" | "balance";
 
 export interface CheckoutAccount {
   email: string;
   balanceCents: number;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  country?: string;
+  street?: string;
+  city?: string;
+  postalCode?: string;
 }
 
 export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: CheckoutAccount | null }) {
   const { currency } = usePreferences();
   const [stage, setStage] = useState<Stage>("form");
+  const [method, setMethod] = useState<Method>("card");
+
+  // Customer snapshot fields
+  const [firstName, setFirstName] = useState(account?.firstName ?? "");
+  const [lastName, setLastName] = useState(account?.lastName ?? "");
   const [email, setEmail] = useState(account?.email ?? "");
+  const [phone, setPhone] = useState(account?.phone ?? "");
+  const [country, setCountry] = useState(account?.country ?? "GB");
+  const [street, setStreet] = useState(account?.street ?? "");
+  const [city, setCity] = useState(account?.city ?? "");
+  const [postalCode, setPostalCode] = useState(account?.postalCode ?? "");
+
   const [agreed, setAgreed] = useState(false);
   const [order, setOrder] = useState<OrderResult | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -34,14 +53,14 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
   const priceCents = Math.round(plan.price * 100);
   const balanceCents = account?.balanceCents ?? 0;
   const canPayFromBalance = !!account && balanceCents >= priceCents;
-  const [method, setMethod] = useState<Method>("card");
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
-    setStage("processing");
-    try {
-      if (method === "balance") {
+
+    if (method === "balance") {
+      setStage("redirecting");
+      try {
         const res = await payWithBalance(plan.id);
         if (res.ok && res.order) {
           setOrder(res.order);
@@ -50,20 +69,42 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
           setError(res.error ?? "We couldn't charge your balance. Please try again.");
           setStage("form");
         }
-        return;
+      } catch {
+        setError("Failed to process payment from balance.");
+        setStage("form");
       }
-      const result = await placeOrder(plan.id, email);
-      setOrder(result);
-      setStage("done");
+      return;
+    }
+
+    // Card payment via Corefy / Sterling Pay Hosted Payment Page (HPP)
+    setStage("redirecting");
+    try {
+      const res = await createCorefyPayment(plan.id, {
+        firstName,
+        lastName,
+        email,
+        phone,
+        country,
+        street,
+        city,
+        postalCode,
+      });
+
+      if (res.ok && res.hppUrl) {
+        // Redirect browser to Corefy Hosted Payment Page
+        window.location.href = res.hppUrl;
+      } else {
+        setError(res.error ?? "Failed to initialize payment gateway. Please try again.");
+        setStage("form");
+      }
     } catch {
-      setError("Something went wrong placing your order. Please try again.");
+      setError("An unexpected network error occurred. Please try again.");
       setStage("form");
     }
   }
 
   if (stage === "done" && order) {
-    const deliveredTo = method === "balance" ? account?.email ?? email : email;
-    return <Delivery plan={plan} order={order} email={deliveredTo} copied={copied} setCopied={setCopied} />;
+    return <Delivery plan={plan} order={order} email={email} copied={copied} setCopied={setCopied} />;
   }
 
   return (
@@ -71,13 +112,15 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
       {/* Form */}
       <form onSubmit={onSubmit} className="order-2 rounded-panel glass p-6 sm:p-8 lg:order-1">
         <h2 className="font-display text-2xl text-ink">{account ? "Checkout" : "Guest checkout"}</h2>
-        <p className="mt-1 text-sm text-ink-muted">Your QR is delivered instantly and by email.</p>
+        <p className="mt-1 text-sm text-ink-muted">
+          Fast, bank-grade secure checkout. Instant eSIM QR delivery after payment.
+        </p>
 
         {account ? (
           <div className="mt-6" role="radiogroup" aria-label="Payment method">
             <div className="grid grid-cols-2 gap-2">
               <MethodTab active={method === "card"} onClick={() => setMethod("card")}>
-                Pay by card
+                Card (HPP)
               </MethodTab>
               <MethodTab
                 active={method === "balance"}
@@ -96,7 +139,7 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
         ) : null}
 
         {method === "balance" && account ? (
-          <fieldset className="mt-6 space-y-4" disabled={stage === "processing"}>
+          <fieldset className="mt-6 space-y-4" disabled={stage === "redirecting"}>
             <div className="rounded-field border border-hairline bg-night p-4">
               <p className="text-sm text-ink-muted">Delivered to</p>
               <p className="font-medium text-ink">{account.email}</p>
@@ -111,32 +154,117 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
             </div>
           </fieldset>
         ) : (
-          <fieldset className="mt-6 space-y-4" disabled={stage === "processing"}>
-            <Field id="email" label="Email for delivery" hint="We send the QR code here.">
-              <input
-                id="email"
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
-                className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
-              />
-            </Field>
+          <fieldset className="mt-6 space-y-4" disabled={stage === "redirecting"}>
+            <div className="rounded-field border border-hairline bg-night/50 p-3.5 text-xs text-ink-muted">
+              <span className="flex items-center gap-1.5 font-medium text-emerald">
+                <Shield className="size-4" /> Hosted Payment Page
+              </span>
+              <p className="mt-1">
+                You will be securely redirected to our PCI-DSS certified payment gateway to enter your card details.
+              </p>
+            </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <Field id="name" label="Cardholder name">
-                <input id="name" required placeholder="Alex Traveler" className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none" />
+              <Field id="firstName" label="First name">
+                <input
+                  id="firstName"
+                  required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="Alex"
+                  className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                />
               </Field>
-              <Field id="card" label="Card number">
-                <input id="card" required inputMode="numeric" placeholder="4242 4242 4242 4242" className="h-12 w-full rounded-field border border-hairline bg-night px-4 font-mono text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none" />
+              <Field id="lastName" label="Last name">
+                <input
+                  id="lastName"
+                  required
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  placeholder="Rider"
+                  className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                />
               </Field>
-              <Field id="exp" label="Expiry">
-                <input id="exp" required placeholder="MM/YY" className="h-12 w-full rounded-field border border-hairline bg-night px-4 font-mono text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none" />
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field id="email" label="Email for delivery" hint="We send the QR code & invoice here.">
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="alex@example.com"
+                  className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                />
               </Field>
-              <Field id="cvc" label="CVC">
-                <input id="cvc" required inputMode="numeric" placeholder="123" className="h-12 w-full rounded-field border border-hairline bg-night px-4 font-mono text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none" />
+              <Field id="phone" label="Phone number">
+                <input
+                  id="phone"
+                  type="tel"
+                  required
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="+44 7700 900077"
+                  className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                />
               </Field>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field id="country" label="Country">
+                <select
+                  id="country"
+                  required
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
+                  className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink focus:border-aurora-2 focus:outline-none"
+                >
+                  {addressCountries.map((c) => (
+                    <option key={c.code} value={c.code}>
+                      {c.name} ({c.code})
+                    </option>
+                  ))}
+                </select>
+              </Field>
+              <Field id="city" label="City">
+                <input
+                  id="city"
+                  required
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="London"
+                  className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                />
+              </Field>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              <div className="sm:col-span-2">
+                <Field id="street" label="Street address">
+                  <input
+                    id="street"
+                    required
+                    value={street}
+                    onChange={(e) => setStreet(e.target.value)}
+                    placeholder="12 Baker Street"
+                    className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                  />
+                </Field>
+              </div>
+              <div>
+                <Field id="postalCode" label="Postal code">
+                  <input
+                    id="postalCode"
+                    required
+                    value={postalCode}
+                    onChange={(e) => setPostalCode(e.target.value)}
+                    placeholder="NW1 6XE"
+                    className="h-12 w-full rounded-field border border-hairline bg-night px-4 text-ink placeholder:text-ink-muted focus:border-aurora-2 focus:outline-none"
+                  />
+                </Field>
+              </div>
             </div>
           </fieldset>
         )}
@@ -153,23 +281,29 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
           />
           <span>
             I read and agree to the{" "}
-            <Link href="/legal/terms" className="text-emerald underline-offset-2 hover:underline">terms and conditions</Link> and{" "}
-            <Link href="/legal/privacy" className="text-emerald underline-offset-2 hover:underline">privacy policy</Link>.
+            <Link href="/legal/terms" className="text-emerald underline-offset-2 hover:underline">
+              terms and conditions
+            </Link>{" "}
+            and{" "}
+            <Link href="/legal/privacy" className="text-emerald underline-offset-2 hover:underline">
+              privacy policy
+            </Link>
+            .
           </span>
         </label>
 
         <button
           type="submit"
-          disabled={stage === "processing" || !agreed}
+          disabled={stage === "redirecting" || !agreed}
           className="mt-4 inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-aurora text-base font-medium text-on-aurora shadow-aurora transition-[filter,transform] duration-[var(--dur-base)] hover:brightness-[1.06] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {stage === "processing" ? (
+          {stage === "redirecting" ? (
             <>
               <span className="relative grid size-5 place-items-center" aria-hidden>
                 <span className="absolute inset-0 rounded-full border border-on-aurora/50 animate-pulse-ring" />
                 <span className="size-1.5 rounded-full bg-on-aurora" />
               </span>
-              Issuing your eSIM…
+              Connecting to secure payment…
             </>
           ) : method === "balance" ? (
             <>
@@ -177,15 +311,21 @@ export function CheckoutFlow({ plan, account }: { plan: PlanSummary; account?: C
             </>
           ) : (
             <>
-              Pay <Price usd={plan.price} /> & get QR <ArrowRight className="size-4" />
+              Proceed to payment · <Price usd={plan.price} /> <ArrowRight className="size-4" />
             </>
           )}
         </button>
 
         <ul className="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-ink-muted">
-          <li className="inline-flex items-center gap-1"><Check className="size-3.5 text-emerald" /> SSL secure</li>
-          <li className="inline-flex items-center gap-1"><Bolt className="size-3.5 text-emerald" /> Instant delivery</li>
-          <li className="inline-flex items-center gap-1"><Check className="size-3.5 text-emerald" /> No hidden fees</li>
+          <li className="inline-flex items-center gap-1">
+            <Check className="size-3.5 text-emerald" /> SSL 256-bit secure
+          </li>
+          <li className="inline-flex items-center gap-1">
+            <Bolt className="size-3.5 text-emerald" /> Instant delivery
+          </li>
+          <li className="inline-flex items-center gap-1">
+            <Check className="size-3.5 text-emerald" /> No hidden fees
+          </li>
         </ul>
 
         <div className="mt-5 flex flex-col items-center gap-3 border-t border-hairline pt-5">
@@ -211,7 +351,8 @@ function OrderTicket({ plan, className }: { plan: PlanSummary; className?: strin
           <span className="text-ink">Order summary</span>
         </p>
         <h3 className="mt-1 font-display text-2xl text-ink">
-          <span aria-hidden className="mr-1.5">{plan.flag}</span>{plan.title}
+          <span aria-hidden className="mr-1.5">{plan.flag}</span>
+          {plan.title}
         </h3>
         <p className="font-mono text-[0.68rem] text-ink-muted">{plan.coords}</p>
       </div>
@@ -260,7 +401,6 @@ function Delivery({
       </div>
 
       <div className="glass aurora-edge relative mt-8 grid gap-6 overflow-hidden rounded-panel p-6 shadow-aurora sm:p-8 md:grid-cols-[auto_1fr] md:items-center">
-        {/* The activation signal travelling the card border. */}
         <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-px animate-border-signal" />
         <div className="mx-auto animate-fade-up">
           <QrCode value={order.qrCode} />
@@ -268,12 +408,18 @@ function Delivery({
         <div>
           <p className="eyebrow">Scan to install</p>
           <h3 className="mt-1 font-display text-2xl text-ink">
-            <span aria-hidden className="mr-1.5">{plan.flag}</span>{plan.title}
+            <span aria-hidden className="mr-1.5">{plan.flag}</span>
+            {plan.title}
           </h3>
-          <p className="mt-1 text-sm text-ink-muted">{plan.data} · {plan.days} days · {plan.speed}</p>
+          <p className="mt-1 text-sm text-ink-muted">
+            {plan.data} · {plan.days} days · {plan.speed}
+          </p>
 
           <div className="mt-4 space-y-1.5 rounded-field bg-surface p-4 font-mono text-xs text-ink">
-            <p className="flex justify-between gap-2"><span className="text-ink-muted">SM-DP+</span><span>{order.smdpAddress}</span></p>
+            <p className="flex justify-between gap-2">
+              <span className="text-ink-muted">SM-DP+</span>
+              <span>{order.smdpAddress}</span>
+            </p>
             <p className="flex flex-col gap-1">
               <span className="text-ink-muted">Activation code</span>
               <span className="break-all">{order.activationCode}</span>
@@ -287,7 +433,13 @@ function Delivery({
             }}
             className="mt-3 inline-flex h-10 items-center gap-2 rounded-full glass px-4 text-sm font-medium text-ink hover:border-emerald"
           >
-            {copied ? <><Check className="size-4 text-emerald" /> Copied</> : "Copy activation code"}
+            {copied ? (
+              <>
+                <Check className="size-4 text-emerald" /> Copied
+              </>
+            ) : (
+              "Copy activation code"
+            )}
           </button>
         </div>
       </div>
@@ -299,10 +451,16 @@ function Delivery({
       </div>
 
       <div className="mt-6 flex flex-wrap justify-center gap-3">
-        <Link href="/account?tab=esims" className="inline-flex h-12 items-center gap-2 rounded-full bg-aurora px-6 font-medium text-on-aurora hover:brightness-[1.06]">
+        <Link
+          href="/account?tab=esims"
+          className="inline-flex h-12 items-center gap-2 rounded-full bg-aurora px-6 font-medium text-on-aurora hover:brightness-[1.06]"
+        >
           View in My eSIMs <ArrowRight className="size-4" />
         </Link>
-        <Link href="/destinations" className="inline-flex h-12 items-center rounded-full glass px-6 font-medium text-ink hover:border-hairline-strong">
+        <Link
+          href="/destinations"
+          className="inline-flex h-12 items-center rounded-full glass px-6 font-medium text-ink hover:border-hairline-strong"
+        >
           Add another destination
         </Link>
       </div>
@@ -333,7 +491,7 @@ function MethodTab({
         active
           ? "border-emerald bg-emerald/10 text-ink"
           : "border-hairline bg-night text-ink-muted hover:border-hairline-strong",
-        disabled && "cursor-not-allowed opacity-50 hover:border-hairline",
+        disabled && "cursor-not-allowed opacity-50 hover:border-hairline"
       )}
     >
       {children}
@@ -341,7 +499,17 @@ function MethodTab({
   );
 }
 
-function Field({ id, label, hint, children }: { id: string; label: string; hint?: string; children: React.ReactNode }) {
+function Field({
+  id,
+  label,
+  hint,
+  children,
+}: {
+  id: string;
+  label: string;
+  hint?: string;
+  children: React.ReactNode;
+}) {
   return (
     <label htmlFor={id} className="block">
       <span className="mb-1.5 block text-sm font-medium text-ink">{label}</span>

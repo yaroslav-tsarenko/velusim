@@ -1,12 +1,13 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { getCountry } from "@/lib/data/countries";
 import { DestinationCard } from "@/components/cards/DestinationCard";
 import { StampBadge } from "@/components/ui/StampBadge";
 import { QrCode } from "@/components/checkout/QrCode";
-import { topUpAction, logoutAction, type FormState } from "@/lib/auth/actions";
+import { logoutAction } from "@/lib/auth/actions";
+import { createWalletTopUpPayment } from "@/app/checkout/actions";
 import type { User, Transaction, EsimRecord } from "@/lib/auth/types";
 import { usePreferences } from "@/components/providers/Preferences";
 import { Bolt } from "@/components/ui/icons";
@@ -76,8 +77,39 @@ export function AccountView({
 }
 
 function WalletPanel({ user, transactions }: { user: User; transactions: Transaction[] }) {
-  const [state, formAction, pending] = useActionState<FormState, FormData>(topUpAction, {});
   const { currency } = usePreferences();
+  const [customAmount, setCustomAmount] = useState("");
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleTopUp(amount: number) {
+    if (!amount || amount < 1 || isNaN(amount)) {
+      setError("Please enter a valid amount (minimum €1).");
+      return;
+    }
+    setError(null);
+    setPending(true);
+
+    try {
+      const res = await createWalletTopUpPayment(amount);
+      if (res.ok && res.hppUrl) {
+        // Redirect to Corefy / Sterling Pay Hosted Payment Page
+        window.location.href = res.hppUrl;
+      } else {
+        setError(res.error ?? "Failed to initialize payment gateway.");
+        setPending(false);
+      }
+    } catch {
+      setError("An unexpected network error occurred. Please try again.");
+      setPending(false);
+    }
+  }
+
+  function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const val = parseFloat(customAmount);
+    handleTopUp(val);
+  }
 
   return (
     <div className="grid gap-5 lg:grid-cols-2">
@@ -85,23 +117,27 @@ function WalletPanel({ user, transactions }: { user: User; transactions: Transac
         <p className="eyebrow">Current balance</p>
         <p className="mt-1 font-display text-4xl text-ink">{formatCents(user.balanceCents, currency)}</p>
 
-        <form action={formAction} className="mt-6 space-y-3">
-          {state.message ? (
-            <p className={cn("rounded-xl border px-4 py-3 text-sm", state.ok ? "border-teal/40 bg-teal/10 text-ink" : "border-emerald/40 bg-emerald/10 text-emerald")}>
-              {state.message}
+        <form onSubmit={onSubmit} className="mt-6 space-y-3">
+          {error ? (
+            <p className="rounded-xl border border-emerald/40 bg-emerald/10 px-4 py-3 text-sm text-emerald">
+              {error}
             </p>
           ) : null}
+
+          <p className="text-xs text-ink-muted">
+            Add credits via bank card on our secure Corefy / Sterling Pay payment page.
+          </p>
+
           <div className="flex flex-wrap gap-2">
-            {[10, 25, 50].map((amt) => (
+            {[10, 25, 50, 100].map((amt) => (
               <button
                 key={amt}
-                type="submit"
-                name="amount"
-                value={amt}
+                type="button"
+                onClick={() => handleTopUp(amt)}
                 disabled={pending}
                 className="inline-flex h-10 items-center rounded-full border border-hairline px-4 text-sm font-medium text-ink transition-colors hover:border-hairline-strong disabled:opacity-50"
               >
-                + ${amt}
+                + €{amt}
               </button>
             ))}
           </div>
@@ -112,15 +148,18 @@ function WalletPanel({ user, transactions }: { user: User; transactions: Transac
               min={1}
               max={1000}
               step="0.01"
-              placeholder="Custom amount"
-              className="w-full rounded-xl glass px-4 py-3 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus-visible:outline-2 focus-visible:outline-emerald"
+              value={customAmount}
+              onChange={(e) => setCustomAmount(e.target.value)}
+              placeholder="Custom EUR amount"
+              disabled={pending}
+              className="w-full rounded-xl glass px-4 py-3 text-sm text-ink placeholder:text-ink-muted focus:outline-none focus-visible:outline-2 focus-visible:outline-emerald disabled:opacity-50"
             />
             <button
               type="submit"
               disabled={pending}
               className="inline-flex h-12 shrink-0 items-center gap-1.5 rounded-full bg-aurora px-5 text-sm font-medium text-on-aurora transition-[filter,transform] duration-[var(--dur-base)] hover:brightness-[1.06] active:scale-[0.98] disabled:opacity-50"
             >
-              <Bolt className="size-4" /> {pending ? "…" : "Top up"}
+              <Bolt className="size-4" /> {pending ? "Redirecting…" : "Top up"}
             </button>
           </div>
         </form>

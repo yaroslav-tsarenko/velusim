@@ -55,4 +55,4 @@ export interface Device {
   note?: string;
 }
 
-export type CurrencyCode = "USD" | "EUR" | "GBP";
+export type CurrencyCode = "EUR";

@@ -19,7 +19,19 @@ export default async function CheckoutPage({ searchParams }: PageProps<"/checkou
   const plan = resolvePlanSummary(planId) ?? fallbackSummary();
 
   const user = await getCurrentUser();
-  const account = user ? { email: user.email, balanceCents: user.balanceCents } : null;
+  const account = user
+    ? {
+        email: user.email,
+        balanceCents: user.balanceCents,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        phone: user.phone,
+        country: user.country,
+        street: user.street,
+        city: user.city,
+        postalCode: user.postalCode,
+      }
+    : null;
 
   return (
     <Section band="night" starfield aurora>
