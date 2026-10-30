@@ -31,7 +31,7 @@ export const policies: Policy[] = [
     slug: "terms",
     title: "Terms & Conditions",
     shortTitle: "Terms",
-    lastUpdated: "15 September 2026",
+    lastUpdated: "30 October 2026",
     summary:
       "The contract that governs purchases from and use of velusim.com and the travel eSIM services sold by HARTWICK VENTURES LTD.",
     sections: [
@@ -85,6 +85,7 @@ export const policies: Policy[] = [
         heading: "Delivery, installation and validity",
         clauses: [
           "After a successful order, the QR code and installation instructions are made available in your account dashboard and sent to your order email address. Delivery is electronic; no physical SIM is shipped. The delivery process and steps for missing or delayed credentials are explained in the Digital Delivery & Activation Policy. A failure to deliver a usable eSIM is not cured merely by recording that an email was sent.",
+          "We disclose product availability and the applicable delivery timeframe before payment. Standard electronic delivery is within 5 minutes after successful payment confirmation. If a different delivery date is needed because of known unavailability or delay, we disclose it and obtain your express agreement before payment. If an unexpected delay after purchase prevents us from meeting the agreed timeframe, we notify you, provide a revised anticipated delivery date where one can reasonably be established, and offer cancellation of the affected order with the applicable refund under our Digital Delivery & Activation Policy. Internal order acceptance or provisioning steps do not restart the delivery clock after successful payment confirmation.",
           "Your Plan's validity period starts immediately after successful installation of the eSIM, not when you arrive at your destination or first use data, calls or SMS. Installing before travel can therefore use up part or all of the validity period before arrival. Read the instructions before installing. The stated duration runs continuously and is not paused by switching off the device, turning off the eSIM or leaving the coverage area.",
           "There is no fixed deadline for installing an uninstalled eSIM after purchase, and Velusim does not impose a separate pre-installation expiry period. This does not extend the 14-day change-of-mind refund period. If a later technical or regulatory change makes an uninstalled purchased eSIM unusable, contact us: we will offer a suitable replacement with your agreement or an appropriate refund where lawful, rather than treat the purchase as forfeited simply because it was not installed sooner.",
           "A Plan ends when its validity expires. An individual allowance may be exhausted earlier, in which case the affected feature may stop until an eligible Top-up is purchased; the remaining included features continue where supported and within the Plan's validity. Unused allowances do not roll over unless this is expressly included in the Plan. Removing the profile does not pause validity or restore used allowances.",
@@ -133,7 +134,7 @@ export const policies: Policy[] = [
     slug: "refund-cancellation",
     title: "Refund & Cancellation Policy",
     shortTitle: "Refund Policy",
-    lastUpdated: "15 September 2026",
+    lastUpdated: "30 October 2026",
     summary:
       "How change-of-mind cancellations work, the 14-day request period, and remedies for faulty or undelivered eSIMs.",
     sections: [
@@ -165,6 +166,7 @@ export const policies: Policy[] = [
         heading: "Technical problems and incorrect orders",
         clauses: [
           "Contact us promptly if your QR code is missing or invalid, installation fails, a purchased feature does not work, the wrong Plan is supplied or service materially differs from its description. Provide the order reference, affected destination, device model, installation status and a short account of the problem. We will request only additional information reasonably needed to investigate.",
+          "If we cannot meet the delivery timeframe agreed for your order, you may cancel the affected undelivered eSIM or Top-up instead of accepting a revised date. This right is separate from the 14-day change-of-mind policy and does not depend on the expiry of an additional waiting period. We refund the full amount paid for the affected undelivered product, including corresponding refundable tax or delivery charges, without a cancellation or administration fee. We issue the refund without undue delay and no later than 14 calendar days after receiving your cancellation notice, or sooner where applicable law requires. If we establish that we cannot supply the affected product at all, we notify you, cancel it and issue the same refund without undue delay and no later than 14 calendar days after that notification, subject to any shorter legal deadline. The Digital Delivery & Activation Policy explains notification and cancellation procedures.",
           "We may first help correct settings or a provisioning problem, or offer an appropriate replacement with your agreement. If the service cannot be brought into conformity within the time and on the conditions required by law, we will provide the applicable price reduction, cancellation or refund. A partial refund must reasonably reflect the affected or unprovided part; a full refund may be due where the whole service has failed or the law requires it.",
           "An incompatible or locked device, accidental profile deletion, lack of local coverage or incorrect settings does not produce the same outcome in every case. We will consider the information given before purchase, whether our compatibility or coverage statement was inaccurate, what was actually supplied and your legal rights. We will not reject a genuine fault claim solely because the eSIM was installed or some allowances were consumed.",
           "Report connection problems while you are in the affected destination when reasonably possible. This can help us diagnose them, but contacting us after travel does not automatically extinguish a statutory claim. Screenshots or other evidence may be requested proportionately; support contact is not a requirement to surrender legal rights.",
@@ -569,7 +571,7 @@ export const policies: Policy[] = [
     slug: "complaints",
     title: "Complaints Handling Policy",
     shortTitle: "Complaints",
-    lastUpdated: "15 September 2026",
+    lastUpdated: "30 October 2026",
     summary:
       "How to raise a complaint with HARTWICK VENTURES LTD, how it is investigated, time limits, and independent routes available to you.",
     sections: [
@@ -615,7 +617,7 @@ export const policies: Policy[] = [
       {
         heading: "Records and fair treatment",
         clauses: [
-          "Complaint information will be used to investigate and document the matter, implement the outcome, identify relevant service improvements and meet legal requirements, in accordance with the Privacy Policy. We will limit disclosure to those who need it and retain records according to the complaint, legal and dispute-related purposes.",
+          "Complaint information will be used to investigate and document the matter, implement the outcome, identify relevant service improvements and meet legal requirements, in accordance with the Privacy Policy. We will limit disclosure to those who need it. We retain complaint correspondence and outcome records for up to 24 months after closure of the complaint, including completion of any internal review already requested. Only records needed for a specific legal obligation, investigation or actual or reasonably anticipated claim are retained longer under the criteria in Section 5 of our Privacy Policy. This does not extend the retention of unrelated account data or technical logs.",
           "Communications must not contain threats, harassment or knowingly false evidence. We may proportionately restrict an unsafe channel while keeping a reasonable way to progress the complaint. Persistence, dissatisfaction or lawful criticism alone are not grounds to reject a genuine complaint.",
         ],
       },

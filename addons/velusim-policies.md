@@ -153,6 +153,8 @@ Promotional conditions will be disclosed with the offer. A discount does not rem
 
 Delivery is electronic. Following a successful order, installation credentials and instructions are made available in your account and sent to your order email address. No physical SIM is shipped. If credentials are missing, delayed or unusable, follow our [Digital Delivery & Activation Policy](https://velusim.com/legal/delivery-activation) or email info@velusim.com.
 
+We disclose product availability and the applicable delivery timeframe before payment. Standard electronic delivery is within 5 minutes after successful payment confirmation. If a different delivery date is needed because of known unavailability or delay, we disclose it and obtain your express agreement before payment. If an unexpected delay after purchase prevents us from meeting the agreed timeframe, we notify you, provide a revised anticipated delivery date where one can reasonably be established, and offer cancellation of the affected order with the applicable refund under our [Digital Delivery & Activation Policy](https://velusim.com/legal/delivery-activation). Internal order acceptance or provisioning steps do not restart the delivery clock after successful payment confirmation.
+
 **Your Plan's validity starts immediately upon successful Installation of the eSIM. It does not wait until you arrive at your destination, first connect to a network or begin using data, calls or SMS.** Installing before travel can use up part or all of the validity period before your trip.
 
 The validity period runs continuously. Switching off the device, disabling the eSIM, leaving a coverage area or removing the profile does not pause or restart it. Any deadline for installing an uninstalled eSIM will be disclosed before purchase; no undisclosed pre-installation expiry will be used to forfeit your purchase.
@@ -502,6 +504,8 @@ Unused allowances ordinarily expire with the Plan and are not exchanged for cash
 
 Contact us if credentials do not arrive, cannot be retrieved, are invalid, or the service cannot be installed or used as described. We will investigate and take reasonable steps to provide or restore the agreed service.
 
+If we cannot meet the delivery timeframe agreed for your order, you may cancel the affected undelivered eSIM or Top-up instead of accepting a revised date. This right is separate from the 14-day change-of-mind policy and does not depend on the expiry of an additional waiting period. We refund the full amount paid for the affected undelivered product, including corresponding refundable tax or delivery charges, without a cancellation or administration fee. We issue the refund without undue delay and no later than 14 calendar days after receiving your cancellation notice, or sooner where applicable law requires. If we establish that we cannot supply the affected product at all, we notify you, cancel it and issue the same refund without undue delay and no later than 14 calendar days after that notification, subject to any shorter legal deadline. The [Digital Delivery & Activation Policy](https://velusim.com/legal/delivery-activation) explains notification and cancellation procedures.
+
 Depending on the problem and applicable law, the remedy may be correction, repeat performance, replacement with your agreement, a price reduction or a full or partial refund. We will not substitute a materially different destination, allowance or validity period without your agreement.
 
 If a remedy cannot be provided within a reasonable time or without significant inconvenience where those requirements apply, we will provide the further remedy required by law. General statements about network availability do not allow us to retain payment for a service we fail to supply as agreed.
@@ -830,7 +834,7 @@ The applicable law and court provisions are set out in our [Terms & Conditions](
 
 ## 9. Records and improvements
 
-We keep complaint records as necessary to investigate, respond, implement outcomes, identify recurring problems and meet legal requirements. The [Privacy Policy](https://velusim.com/legal/privacy) explains the relevant retention criteria and your rights.
+We use complaint records to investigate, respond, implement outcomes, identify recurring problems and meet legal requirements. We retain complaint correspondence and outcome records for up to 24 months after closure of the complaint, including completion of any internal review already requested. Only records needed for a specific legal obligation, investigation or actual or reasonably anticipated claim are retained longer under the criteria in Section 5 of our [Privacy Policy](https://velusim.com/legal/privacy). This does not extend the retention of unrelated account data or technical logs.
 
 We use the findings of complaints to correct errors and improve service where appropriate. Raising a complaint in good faith is not itself a reason to suspend an account or refuse a lawful remedy.
 
@@ -879,7 +883,7 @@ The Privacy Policy is a substantive draft based on the service model. It is not 
 2. eSIM identifiers and usage records accessible to Velusim; whether call metadata, SMS metadata/content, browsing information or precise location is processed. Clearly distinguish network processing from information accessible to the seller.
 3. Authentication, hosting, security, support, communications and payment recipient categories; controller/processor roles and the purposes of each disclosure.
 4. Actual international processing destinations, applicable UK/EU transfer rules and the mechanism for each relevant transfer. Expand public section 5 with the verified geographic and safeguard detail; do not imply that contractual safeguards already exist without reviewing them.
-5. An operational retention schedule matching the criteria in public section 6, including backups, legal holds and deletion workflows. Avoid arbitrary numerical periods.
+5. An operational retention schedule matching the periods in public Privacy Policy section 5, including backups, legal holds and deletion workflows. Avoid arbitrary numerical periods.
 6. Whether optional analytics, advertising, email tracking or marketing are active. Delete inapplicable categories or clearly describe the actual activity and consent process.
 7. Whether solely automated decisions with legal or similarly significant effects occur. If they do, disclose the actual logic, significance, effects and applicable safeguards; a generic rights paragraph is insufficient. If they do not, a verified statement can be added.
 8. Any destination-specific identity collection and a suitable collection channel. Do not require a passport for every customer without a factual and legal basis.
