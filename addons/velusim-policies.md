@@ -231,11 +231,11 @@ Website: **https://velusim.com**
 
 ## 1. Who is responsible for your information
 
-**HARTWICK VENTURES LTD**, trading as **Velusim**, is responsible as controller for the personal information it processes to operate velusim.com, sell and manage its eSIM services and communicate with customers.
+**HARTWICK VENTURES LTD**, trading as **Velusim**, is responsible as controller for the personal information it processes to operate **velusim.com**, sell and manage its eSIM services and communicate with customers.
 
 Our company number is **17206399** and our registered office is **Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH**. Contact **info@velusim.com** for privacy questions, rights requests or complaints.
 
-This Policy covers Website visitors, account holders, customers and people who contact us. Telecommunications networks may also process information for their own network operations and legal obligations. This Policy describes processing for which Velusim is responsible; it does not suggest that we control every independent network's processing.
+This Policy covers Website visitors, account holders, customers and people who contact us. Telecommunications networks may also process information for their own operations and legal obligations. This Policy describes processing for which Velusim is responsible; it does not suggest that we control every independent network's processing.
 
 ## 2. Information we process and where it comes from
 
@@ -247,13 +247,13 @@ The information relevant to your interaction with us may include:
 | Orders and payments | Selected Plans and Top-ups, order identifiers, prices, currency, transaction status, billing information where required, payment references and refund records. Information comes from you, our order systems and payment-processing confirmations. |
 | eSIM and service records | eSIM identifiers, delivery and Installation status, Activation time, validity, allowances, Top-ups and usage or network-status information made available to us to manage your service. These records may come from technical and connectivity providers. |
 | Device and Website information | IP address, browser and device information, access times, requested pages and relevant security or error logs generated when you use the Website. Optional tracking is addressed in our Cookie Policy. |
-| Support and complaints | Messages, correspondence, relevant screenshots, device settings and other information you choose to provide, together with our investigation and response records. |
-| Eligibility and verification information | Residency or location information, billing details and, only when necessary, additional information needed to address a legal, identity or fraud concern. Any destination-specific identity requirement will be explained. |
+| Support and complaints | Messages, correspondence, relevant screenshots, device settings and other information you provide, together with our investigation and response records. |
+| Eligibility and verification information | Residency or location information, billing details and, where necessary, additional information needed to address a legal, identity or fraud concern. Any destination-specific identity requirement will be explained. |
 | Marketing preferences | Your subscription choice, consent records where applicable and requests to stop receiving marketing. |
 
 Not every category applies to every user. Service records do not necessarily include the content of communications. The fact that a mobile network carries your traffic does not mean Velusim receives all browsing, call or message content.
 
-Please do not email passwords, full payment-card details, card security codes or unrelated sensitive information. If verification is needed, we will explain the relevant information and how to provide it appropriately. Payment details entered during checkout are processed for payment authorisation; ordinary support correspondence is not an appropriate way to submit them.
+Please do not email passwords, full payment-card details, card security codes or unrelated sensitive information. If verification is needed, we will explain what information is relevant and how to provide it appropriately. Payment details entered during checkout are processed for payment authorisation; ordinary support correspondence is not an appropriate way to submit them.
 
 ## 3. Why we use information and our legal bases
 
@@ -265,15 +265,15 @@ Where UK or EU data protection law applies, we use personal information only whe
 | Processing orders and payments; delivering and managing eSIMs and Top-ups | Performance of our contract with you. |
 | Resolving service problems, cancellations and refunds | Performance of the contract and compliance with applicable consumer obligations; legitimate interests in resolving disputes where contractual processing does not apply. |
 | Keeping records required by tax, accounting or other applicable law | Compliance with a legal obligation. |
-| Protecting accounts and systems; preventing fraud and misuse | Legitimate interests in protecting our customers, business and networks, or compliance with a specific legal obligation where applicable. |
+| Protecting accounts and systems; preventing fraud and misuse | Legitimate interests in protecting customers, the business and networks, or compliance with a specific legal obligation where applicable. |
 | Applying legal restrictions and proportionate eligibility checks | Compliance with applicable legal obligations; legitimate interests in enforcing lawful service restrictions where no specific legal obligation applies. |
 | Handling complaints and establishing, exercising or defending legal claims | Compliance with applicable obligations and legitimate interests in investigating concerns and protecting legal rights. |
-| Sending optional promotional communications | Consent where required. Where the law permits marketing about similar services to existing customers without consent, the applicable basis is our legitimate interest, subject to the required opt-out opportunities. |
+| Sending optional promotional communications | Consent where required. Where the law permits marketing about similar services to existing customers without consent, our legitimate interest applies, subject to the required opt-out opportunities. |
 | Optional analytics, personalisation or advertising technologies, if enabled | Consent under the approach described in our Cookie Policy. |
 
-When relying on legitimate interests, we consider the purpose, necessity and effects of the processing on you. We do not rely on that basis where your interests or fundamental rights override our interests. You may ask for more information about the relevant assessment.
+When relying on legitimate interests, we consider the purpose, necessity and effects of processing on you. We do not rely on that basis where your interests or fundamental rights override our interests. You may ask for more information about the relevant assessment.
 
-We do not treat acceptance of the Terms & Conditions as consent to all processing. If information is needed to enter or perform the contract, failing to provide it may prevent us from creating an account, completing an order or supplying the service. Optional information and marketing choices are not conditions of purchase.
+Acceptance of the Terms & Conditions is not consent to all processing. If information is needed to enter or perform the contract, failing to provide it may prevent us from creating an account, completing an order or supplying the service. Optional information and marketing choices are not conditions of purchase.
 
 ## 4. Who may receive information
 
@@ -281,48 +281,87 @@ We disclose information only as relevant to the purpose and applicable law. Reci
 
 - **Payment-processing, acquiring and banking organisations**, for authorisation, settlement, refunds and payment disputes.
 - **eSIM provisioning and telecommunications organisations**, for issuing profiles, activating Plans, managing allowances, providing connectivity and investigating faults.
-- **Hosting, infrastructure and security providers**, for operating and protecting our systems.
-- **Customer communications and support providers**, for transactional emails, support enquiries and complaint handling.
+- **Hosting, infrastructure and security providers**, for operating and protecting systems.
+- **Customer communications and support providers**, for transactional emails, support enquiries and complaints.
 - **Marketing or analytics providers**, only where the relevant functionality is used and the required legal basis and choices are in place.
 - **Professional advisers and auditors**, where necessary for advice, accounting, audit or legal claims.
 - **Public authorities, regulators, courts and law-enforcement bodies**, where disclosure is required or otherwise lawfully justified.
-- **Parties to a proposed business reorganisation or transfer**, only where disclosure is necessary, proportionate and protected appropriately, with notice of any material change where required.
+- **Parties to a proposed business reorganisation or transfer**, only where disclosure is necessary, proportionate and appropriately protected, with notice of material changes where required.
 
-Some recipients act only on our instructions; others have independent legal responsibilities. We use appropriate contractual arrangements where required and limit disclosure to information relevant to the recipient's role. This Policy does not authorise an unlimited transfer of information to unspecified parties.
+Some recipients act on our instructions; others have independent legal responsibilities. We use appropriate contractual arrangements where required and limit disclosure to information relevant to the recipient's role. This Policy does not authorise unrestricted disclosure to unspecified parties.
 
-## 5. International processing
+## 5. Data retention
+
+### 5.1. Retention periods by category
+
+The periods below apply to personal information held by Velusim or processed on our behalf. They identify both the retention period and the event from which it is calculated. We delete or irreversibly anonymise information earlier where its purpose has ended and no other lawful basis requires retention. Pseudonymised information that can still be linked to a person remains personal information.
+
+| Record category | Retention period and starting point | Scope and purpose |
+|---|---|---|
+| **Transaction and payment records needed for accounting and tax** | **6 years from the end of the accounting period to which the records relate**, subject to the specific tax extensions in Section 5.2. | Relevant orders, invoices or receipts, amounts, currency, payment and refund references, transaction status and the minimum customer details needed to substantiate the transaction. This is not a blanket six-year retention rule for full card details, security codes, raw technical logs or unrelated account information. |
+| **Customer account information** | While the account remains open and the information is needed to maintain it; ordinary profile information is deleted or anonymised **within 30 calendar days after account closure**. | Account contact details, preferences and authentication-related profile information. Where a limited item also forms part of an accounting record or a necessary claim record, that item follows the relevant separate rule; the entire profile is not retained for that reason. |
+| **Routine support correspondence** | **Up to 24 months from closure of the support case**. | Enquiries, troubleshooting exchanges and the outcome, to address follow-up questions and recurring service issues. Irrelevant or unnecessarily sensitive attachments are removed sooner when no longer needed. |
+| **Complaints correspondence and outcome records** | **Up to 24 months from closure of the complaint**, including completion of any internal review already requested. | The complaint, relevant investigation evidence, response and outcome. If a particular record is necessary for an actual or reasonably anticipated legal claim or an applicable regulatory obligation, only that record follows Sections 5.2–5.3. A complaint does not automatically cause the entire file to be kept for six years. |
+| **Routine technical logs** | **Up to 90 days from creation of each log entry**. | Website and application diagnostics, ordinary access and error logs used to operate and troubleshoot the service. A specific entry needed to investigate a security incident may be extracted into the incident record; the unrelated log archive is not retained on that basis. |
+| **Security logs** | **Up to 12 months from creation of each log entry**. | Authentication, suspicious-access, abuse and security-event records needed to detect and investigate threats. Specific evidence required for an unresolved incident or claim is handled under Sections 5.2–5.3. |
+
+For example, accounting records for an accounting period ending on 31 December 2026 would normally be retained through 31 December 2032. An account's ordinary profile information is not kept until that date merely because the customer placed an order during that period.
+
+Account closure takes effect when the closure process is completed and confirmed to you. We will not keep that process open solely to postpone deletion. Any active service or outstanding matter affecting closure will be explained. An unresolved accounting obligation or dispute may justify keeping the relevant records separately, rather than keeping an otherwise unnecessary account profile open.
+
+A support case or complaint is closed when the substantive response has been provided, any agreed action has been completed and any internal review already requested has concluded. If the same matter is genuinely reopened, the period for the updated case runs from its subsequent closure. Routine administrative activity or an unrelated new enquiry does not restart retention of an old file.
+
+### 5.2. Statutory obligations and legal-claim records
+
+**Accounting and tax.** The six-year accounting period above reflects UK corporation-tax record-keeping requirements. Where required, relevant records are kept until the later of that period, completion of an HMRC enquiry into the matters concerned, or expiry of the applicable enquiry window. A late return or another applicable legal requirement may affect the end date. We determine the date from the relevant accounting period, filing history and specific statutory requirement. Our lack of UK VAT registration does not remove corporation-tax record-keeping obligations.
+
+**Legal claims.** For ordinary simple-contract claims under the law of England and Wales, the usual limitation period is **six years from the date the cause of action accrued**, normally the relevant breach. This is not automatically six years from account closure, complaint closure or the date of purchase. Different claims, jurisdictions, court orders or legal rules that postpone or extend a limitation period may require a different calculation.
+
+Where it is necessary and proportionate to retain information for a legal claim, we identify the issue, applicable jurisdiction, relevant limitation rule, starting event and resulting retention end date. Only information needed to establish, exercise or defend that claim is retained on that basis. The existence of a possible limitation period is not a general requirement to keep all customer information for that period.
+
+### 5.3. Documented exceptions and restricted retention
+
+If a specific record is subject to an unresolved dispute, chargeback, security investigation, regulatory enquiry, preservation notice or legal proceeding when its ordinary period ends, we may retain that record for as long as it remains necessary for that matter and any applicable legal obligation.
+
+We document the reason, affected records and end date or review trigger, restrict access and review continued need at least every six months and when the matter is resolved. Once the reason ends, and no other lawful retention period applies, we delete or anonymise the affected information within 30 calendar days. If a subsequent appeal, enforcement process or further legal requirement necessitates retention, that basis and its duration are assessed separately.
+
+An exception does not automatically extend the retention of unrelated account data, correspondence or logs. Information kept only for compliance or a dispute is not used for unrelated marketing.
+
+### 5.4. Other service records and preferences
+
+Detailed eSIM and usage information is kept while needed to deliver an active Plan or Top-up and establish the relevant allowance or charge. Once that operational purpose ends, detailed technical records follow the 90-day technical-log limit, measured from the end of that purpose. A minimal record needed to substantiate an order, payment or refund follows the accounting rule; information needed for a particular support case or claim follows the relevant rule above. Retaining a transaction summary does not justify retaining all underlying traffic or diagnostic data.
+
+Marketing subscription information is retained while the relevant subscription or lawful marketing relationship continues. Following an opt-out, we retain only the minimum suppression information needed to prevent further unwanted marketing while the relevant marketing system remains in use, unless a separate legal obligation or claim requires a limited record. Consent evidence is retained while we rely on the consent and, afterwards, only to the extent needed to demonstrate the lawfulness of the relevant activity under the claim criteria in Section 5.2.
+
+Cookie and browser-storage durations are described in our [Cookie Policy](https://velusim.com/legal/cookies) and the applicable cookie information. Those durations do not authorise indefinite retention of personal information collected through the technologies.
+
+### 5.5. Deletion, backups and your requests
+
+Our retention schedule applies to records under our control, including copies held by processors on our behalf. Deletion and backup-management processes must give effect to these periods; making a backup does not create a new retention period. Copies awaiting deletion are restricted from ordinary use, and data previously marked for deletion must not be returned to active use following restoration.
+
+Independent organisations may retain information under their own legal obligations and privacy notices; this does not authorise Velusim to retain its copy beyond its applicable period.
+
+You can request deletion or ask how a period applies to your information by emailing **info@velusim.com**. A scheduled maximum is not a reason to reject a valid earlier erasure request. If particular information must be retained, we will explain the category, reason and applicable duration or determining criteria, subject to lawful restrictions on disclosure.
+
+## 6. International processing
 
 Travel connectivity can involve processing in your destination and in countries where relevant infrastructure or support operations are located. A destination outside the UK or European Economic Area may have different data protection laws.
 
-Where we make a transfer subject to UK or EU restrictions on international transfers, we must have an applicable legal mechanism. Depending on the destination and arrangement, this may be a recognised adequacy decision, appropriate contractual safeguards with any necessary additional measures, or a permitted exception in limited circumstances.
+Where we make a transfer subject to UK or EU restrictions on international transfers, an applicable legal mechanism is required. Depending on the destination and arrangement, this may be a recognised adequacy decision, appropriate contractual safeguards with necessary additional measures, or a permitted exception in limited circumstances.
 
-You may contact info@velusim.com for details of the destinations and transfer mechanism relevant to our processing of your information, and for a copy or description of applicable safeguards, subject to lawful redactions. Purchasing a travel Plan is not blanket consent to all international transfers.
-
-## 6. How long we keep information
-
-We retain personal information for as long as reasonably necessary for its purpose and any applicable legal requirement. The criteria depend on the record:
-
-- **Account records:** whether the account remains active, whether services or disputes are outstanding, and whether particular records must be retained after closure.
-- **Order, payment and accounting records:** applicable accounting and tax requirements, transaction reconciliation and the period needed to address related legal claims.
-- **eSIM and usage records:** what is needed to deliver the purchased service, verify allowances, investigate billing or technical issues and meet applicable retention duties.
-- **Support and complaint records:** the time required to resolve the matter, implement the outcome and address any related claim or regulatory requirement.
-- **Security records:** a proportionate period determined by the risk being investigated, system protection needs and any ongoing incident.
-- **Marketing records:** the duration of the relevant subscription or lawful marketing relationship. Limited suppression information may be retained to ensure that an opt-out continues to be respected.
-- **Consent and preference records:** the time needed to honour and demonstrate the relevant choice, including applicable limitation periods.
-
-Where a legal hold or active dispute requires retention, relevant records may be kept longer for that reason. Records no longer needed are deleted or anonymised as appropriate. Account closure does not require immediate deletion of information that must lawfully be retained.
+Contact **info@velusim.com** for details of the destinations and transfer mechanism relevant to our processing of your information and for a copy or description of applicable safeguards, subject to lawful redactions. Purchasing a travel Plan is not blanket consent to all international transfers.
 
 ## 7. Your rights and choices
 
-Depending on your location and the applicable law, you may have rights to access your information, correct inaccuracies, request deletion, restrict processing, receive a portable copy of certain information, object to particular processing and withdraw consent.
+Depending on your location and applicable law, you may have rights to access information, correct inaccuracies, request deletion, restrict processing, receive a portable copy of certain information, object to particular processing and withdraw consent.
 
 **You can object at any time to processing for direct marketing, including associated profiling.** You can also object to processing based on legitimate interests on grounds relating to your situation. Where applicable, we must stop unless we can demonstrate a legally sufficient reason to continue.
 
-To unsubscribe from promotional emails, use the unsubscribe option in the message or email info@velusim.com. Essential order, service and legal communications may still be sent. Withdrawing consent does not affect processing lawfully carried out before withdrawal.
+To unsubscribe from promotional emails, use the unsubscribe option in the message or email **info@velusim.com**. Essential order, service and legal communications may still be sent. Withdrawing consent does not affect processing lawfully carried out before withdrawal.
 
-Send rights requests to info@velusim.com. We may ask for proportionate information to verify identity or clarify the request. Under applicable UK or EU rules, we generally respond without undue delay and within one month, subject to lawful timing adjustments and extensions. If an extension or refusal applies, we will explain the reason and available challenge routes within the required period. Requests are generally free, with exceptions only where the law permits.
+Send rights requests to **info@velusim.com**. We may request proportionate information to verify identity or clarify a request. Under applicable UK or EU rules, we generally respond without undue delay and within one month, subject to lawful timing adjustments and extensions. If an extension or refusal applies, we will explain the reason and available challenge routes within the required period. Requests are generally free, with exceptions only where permitted by law.
 
-Where applicable law gives you safeguards concerning significant decisions made solely by automated means, you may request the relevant information, contest the decision and seek human intervention. Contact us if a transaction or account decision appears incorrect; we will explain the applicable review process.
+Where applicable law provides safeguards concerning significant decisions made solely by automated means, you may request the relevant information, contest the decision and seek human intervention. Contact us if a transaction or account decision appears incorrect; we will explain the applicable review process.
 
 ## 8. Security
 
@@ -336,13 +375,13 @@ Velusim is intended only for people aged **18 or over**. We do not invite childr
 
 ## 10. Privacy complaints
 
-You can raise a privacy complaint at info@velusim.com or write to our registered office. Please describe the issue and the outcome you are seeking. We will acknowledge a data protection complaint within the applicable legal period, including within 30 days where required by UK law, investigate appropriately and communicate the outcome without undue delay. This acknowledgement period does not replace the separate deadlines for rights requests.
+You can raise a privacy complaint at **info@velusim.com** or write to our registered office. Describe the issue and the outcome you are seeking. We will acknowledge a data protection complaint within the applicable legal period, including within 30 days where required by UK law, investigate appropriately and communicate the outcome without undue delay. This acknowledgement period does not replace the separate deadlines for rights requests.
 
 You may complain to the **Information Commissioner's Office (ICO)** at [ico.org.uk/make-a-complaint](https://ico.org.uk/make-a-complaint/). If another data protection authority has jurisdiction, you may also contact it, including the authority for your habitual residence, place of work or alleged infringement where applicable. Our internal procedure does not remove that right.
 
 ## 11. Changes and contact
 
-We may update this Policy to reflect changes in our processing or legal requirements. Material changes will be brought to your attention where required. A policy update is not a substitute for obtaining new consent when consent is legally needed.
+We may update this Policy to reflect changes in processing or legal requirements. Material changes will be brought to your attention where required. A policy update is not a substitute for obtaining new consent when consent is legally needed.
 
 **Privacy contact:** info@velusim.com  
 **Controller:** HARTWICK VENTURES LTD, company number 17206399  
@@ -538,76 +577,112 @@ If you disagree with a decision, reply to **info@velusim.com** and request a rev
 
 ## 1. Seller and scope
 
-This Policy explains electronic delivery, Installation and Activation of travel eSIMs sold by **HARTWICK VENTURES LTD**, trading as **Velusim**, company number **17206399**. Our registered office is **Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH**. Contact **info@velusim.com** for assistance.
+This Policy explains availability, electronic delivery, Installation and Activation of travel eSIMs sold by **HARTWICK VENTURES LTD**, trading as **Velusim**, company number **17206399**. Our registered office is **Dept 6789, 196 High Road, Wood Green, London, United Kingdom, N22 8HH**. Contact **info@velusim.com** for assistance.
 
-Read this Policy with our [Terms & Conditions](https://velusim.com/legal/terms) and [Refund & Cancellation Policy](https://velusim.com/legal/refund-cancellation).
+Read this Policy with our [Terms & Conditions](https://velusim.com/legal/terms) and [Refund & Cancellation Policy](https://velusim.com/legal/refund-cancellation). Nothing in this Policy limits rights that applicable consumer law does not allow us to exclude.
 
-## 2. Electronic delivery
+## 2. Product availability and delivery information before payment
 
-An eSIM is delivered electronically. We do not ship a physical SIM, and no postal delivery address is used to deliver the profile. Billing or identity information may still be required for a separate lawful purpose.
+Before you complete payment, we will inform you whether the selected eSIM Plan is available and disclose the anticipated delivery timeframe and the delivery deadline applicable to your order. This information will be presented on the relevant product page or during checkout, in time for you to decide whether to proceed.
 
-Following a successful order, the QR code or relevant installation credentials and instructions are made available in your account and sent to your order email address. The order information identifies the Plan purchased and its principal conditions.
+**Our standard delivery timeframe is within 5 minutes after successful payment confirmation.** For this purpose, successful payment confirmation means that the payment has been confirmed as successful in our checkout or order system. Merely submitting payment details, an unsuccessful payment attempt or a pending authorisation does not begin this timeframe.
 
-Delivery is normally automated after order acceptance and successful payment confirmation. Payment review, provisioning issues or an interruption can delay delivery. Any specific delivery time expressly agreed for an order applies; general descriptions of quick delivery do not override your rights if the eSIM is not supplied.
+If we know that the selected product is unavailable or cannot be delivered within the standard timeframe, we will tell you before payment. We will either make the product unavailable for purchase or offer it with a clearly disclosed revised anticipated delivery date or deadline, including the applicable time zone where relevant.
 
-## 3. Missing or delayed credentials
+**Any revised delivery date or deadline must be disclosed and expressly agreed with you before payment.** We will not take payment for an order with a known delivery delay on the assumption that you have accepted it merely by reading a general warning that delays may occur. If you do not agree to the revised timeframe, you can leave the purchase without being charged for that order.
 
-If you cannot find your eSIM:
+If we cannot provide a sufficiently clear anticipated delivery date for an unavailable product, we will not accept payment for that product until we can disclose and agree one. The delivery timeframe you agree before payment will be included in your order confirmation in a form you can retain.
+
+## 3. Electronic delivery
+
+An eSIM is delivered electronically. We do not ship a physical SIM. A postal address is not used to deliver the eSIM profile, although billing or identity information may be required for a separate lawful purpose.
+
+Within the delivery timeframe agreed for your order, the QR code or relevant installation credentials and instructions will be made available in your account and sent to the email address used for the order. Your order information identifies the purchased Plan and its principal conditions.
+
+Delivery means providing usable installation credentials and instructions through the agreed electronic channels. A record that an email was sent does not, by itself, establish that usable credentials were delivered if they are missing, invalid or inaccessible because of a problem on our side.
+
+Delivery is distinct from Installation, Activation and the availability of network coverage at your destination. Receiving or viewing a QR code does not itself install the eSIM or begin the Plan's validity period.
+
+## 4. Unexpected delays after purchase
+
+If an unexpected issue means that we cannot meet the delivery timeframe originally agreed for your order, we will notify you without undue delay using your order email address. The notice will identify the affected order, explain the delay where possible and give a revised anticipated delivery date or deadline.
+
+If we cannot yet establish a reliable revised date, we will say so rather than give an unsupported estimate. This does not delay your cancellation option: you may cancel the affected order immediately instead of waiting for a further estimate. If you choose to wait, we will update you when a revised date can be provided.
+
+**Whenever we cannot meet the originally agreed delivery timeframe, you may choose either to accept the revised timeframe or to cancel the affected order and receive the applicable refund.** You do not have to accept a replacement product, account credit or a voucher instead of a monetary refund to which you are entitled.
+
+To cancel, email **info@velusim.com** with the order number or enough information for us to identify the purchase and state that you wish to cancel because of the delay. You do not have to complete technical troubleshooting or use a particular form before a valid cancellation notice takes effect. We will not treat silence as agreement to a revised delivery date.
+
+If you cancel an undelivered eSIM or Top-up because the agreed delivery timeframe cannot be met, we will refund the full amount paid for that affected product, including any corresponding refundable tax or delivery charge, without a cancellation or administration fee. Where an order contains separate products that were delivered correctly and are not cancelled, the refund will cover the delayed product or products; any broader cancellation rights under applicable law remain unaffected.
+
+We will issue the refund to the original payment method unless another lawful method is expressly agreed with you, without undue delay and no later than **14 calendar days after receiving your cancellation notice**, or sooner where applicable law requires. Bank processing may affect when the repayment appears on your statement, but it does not extend our deadline for issuing it.
+
+If you agree to a revised deadline and we cannot meet it, we will notify you again and offer the same choice to cancel. Agreement to one delay is not agreement to unlimited further delays. We will not substitute a materially different Plan or extend the deadline unilaterally.
+
+Where an unexpected availability problem means we cannot supply the product at all, we will notify you, cancel the affected product and issue the full applicable refund without undue delay and no later than 14 calendar days after notifying you of the cancellation, subject to any shorter legal deadline. No refund is conditional on you accepting a substitute product. An express legal restriction on repayment will be handled as required by law and explained where legally permitted.
+
+## 5. Missing, delayed or unusable credentials
+
+If you cannot find or use your eSIM:
 
 1. Check the order and eSIM area of your account.
 2. Check your email inbox and spam or junk folder.
-3. Confirm whether the order was accepted and whether the email address is correct.
-4. Contact info@velusim.com with your order number and purchase email if the problem remains.
+3. Check the order status and the email address entered during purchase.
+4. Contact **info@velusim.com** with the order number and purchase email if the issue remains.
 
 Do not repeatedly purchase the same Plan simply because a confirmation email is delayed. We can investigate the existing order.
 
-We may verify order ownership before correcting an email address or resending credentials. A record that an email was sent does not, by itself, resolve a failure to deliver usable credentials. If we cannot provide the purchased eSIM as agreed, the remedies in our Refund & Cancellation Policy and applicable law remain available.
+We may reasonably verify order ownership before changing an email address or resending credentials. If an incorrect email address supplied at checkout prevented email delivery, we will assist with correction and retrieval. We will not attribute a delay caused by our systems to you or restart an agreed delivery deadline merely because you reported the issue.
 
-## 4. Check your device before Installation
+The checks above are assistance steps, not conditions on the delay-cancellation right in Section 4. If the agreed delivery timeframe has not been met, that right remains available. If credentials were delivered but are defective, the remedies in our [Refund & Cancellation Policy](https://velusim.com/legal/refund-cancellation) and applicable law also apply.
 
-Your device must support the eSIM, be unlocked for use with the relevant networks and meet the Plan's technical requirements. Read the device-specific instructions. You may need an existing internet connection to download and install the profile.
+## 6. Check your device before Installation
 
-Keep a copy of the order information and ensure you can access the QR code or manual installation details in a way your device supports. Do not publish or forward installation credentials to an unauthorised person.
+Your device must support the eSIM, be unlocked for use with the relevant networks and meet the Plan's technical requirements. Read the device-specific instructions. An existing internet connection may be needed to download and install the profile.
 
-## 5. Installation starts the validity period
+Keep your order information and ensure that you can access the QR code or manual installation details in a way supported by your device. Do not publish installation credentials or give them to an unauthorised person.
+
+## 7. Installation starts the validity period
 
 **The Plan's validity begins immediately upon successful Installation of the eSIM. Installation and Activation occur at the same stage for this purpose.**
 
-The validity period does not begin on first arrival at your destination, first network connection or first use of data, calls or SMS. Receiving or viewing the QR code alone is not successful Installation.
+The validity period does not wait until you arrive at your destination, first connect to a network or first use data, calls or SMS. Receiving or viewing installation credentials alone does not start the validity period.
 
-For example, if you install a seven-day Plan several days before departure, those days form part of its running validity period. Install only when you are ready for the validity period to begin, while allowing for the internet connection and setup steps you may need.
+For example, if you install a seven-day Plan several days before departure, those days form part of its running validity period. Install only when you are ready for validity to begin, while allowing for the internet connection and setup steps you may need.
 
-Once started, validity runs continuously. Disabling the eSIM, turning off the device, leaving the covered destination, changing settings or deleting the profile does not pause, extend or restart it. The Plan and order information govern the applicable duration and expiry calculation.
+Once started, validity runs continuously. Disabling the eSIM, turning off the device, leaving the coverage area or deleting the profile does not pause, extend or restart it. Your Plan and order information govern the duration and expiry calculation.
 
 Any separate deadline for installing an uninstalled eSIM must be disclosed before purchase. We will not apply an undisclosed deadline to forfeit a purchase. If a later technical or legal change prevents use of an uninstalled purchased eSIM, contact us for an appropriate replacement or refund where required.
 
-## 6. Connecting and using allowances
+## 8. Connecting and using allowances
 
-After Installation, follow the instructions for choosing the eSIM as the relevant data, call or SMS line and configuring any required roaming or network settings. Availability depends on being within the selected Plan's coverage and meeting its requirements.
+After Installation, follow the instructions for selecting the eSIM as the relevant data, call or SMS line and configuring any required roaming or network settings. Connectivity depends on being within the selected Plan's coverage and meeting its technical requirements.
 
-Data, call and SMS allowances apply only as described for the Plan. International or special-service calls, verification messages and other features are not automatically included. Hotspot use and any speed-management conditions follow the Plan information and our [Acceptable Use & Fair Usage Policy](https://velusim.com/legal/acceptable-use).
+Data, call and SMS allowances apply as described for the Plan. International or special-service calls, verification messages and other features are not automatically included. Hotspot use and speed-management conditions follow the disclosed Plan information and our [Acceptable Use & Fair Usage Policy](https://velusim.com/legal/acceptable-use).
 
-Keep your ordinary SIM settings under review. Your home mobile provider can separately charge for services routed through that SIM, including automatic data switching. A Velusim purchase does not cancel or change another mobile contract.
+Your ordinary mobile subscription remains separate. Services routed through your home SIM, including automatic data switching, may create charges from your home mobile provider. A Velusim purchase does not cancel or amend another mobile contract.
 
-## 7. Top-ups and expiry
+## 9. Top-ups and expiry
 
-An eligible Top-up adds the allowance or package shown in its offer. Before payment, the offer will state when it begins, its validity and whether it changes the expiry of an existing Plan. Do not assume a Top-up renews the original Plan or extends every remaining allowance.
+An eligible Top-up adds the allowance or package described in its offer. Before payment, the offer will explain when it begins, its validity and whether it changes an existing Plan's expiry. Do not assume that a Top-up renews the original Plan or extends every allowance.
 
-There are no automatic Top-ups or automatic renewals. An exhausted allowance or expired Plan does not trigger another payment. A further package requires a new purchase authorisation.
+The availability, pre-payment delivery disclosure and unexpected-delay provisions in Sections 2–4 also apply to Top-ups. For a Top-up, delivery means making the purchased allowance or package available on the eligible eSIM according to the offer; it need not involve issuing a new QR code. A disclosed future start time for the package is distinct from a failure to provision the purchased Top-up by the agreed delivery deadline.
 
-Unless expressly stated otherwise, unused allowances expire and do not roll over. This does not remove rights arising from a valid cancellation or service failure.
+There are no automatic Top-ups or automatic renewals. Exhaustion or expiry does not trigger another payment. A further package requires a separate purchase authorisation.
 
-## 8. Reinstallation, deletion and device changes
+Unless expressly stated otherwise, unused allowances expire and do not roll over. This does not remove rights arising from cancellation or a service failure.
 
-An eSIM may be limited to one Installation or one device, and a QR code may not be reusable. The relevant instructions govern whether transfer or reinstallation is supported. Do not assume that deleting a profile frees it for another device.
+## 10. Reinstallation, deletion and device changes
 
-Contact us before deleting an eSIM, resetting the relevant device settings or attempting a device transfer if you wish to preserve service. If a device is lost or a profile is deleted, we will assess available recovery or replacement options. Recovery is not guaranteed where the technology does not permit it, but applicable remedies for a fault on our part remain available.
+An eSIM may be limited to one Installation or one device, and a QR code may not be reusable. The relevant instructions govern whether transfer or reinstallation is supported. Deleting a profile does not necessarily free it for another device.
 
-## 9. Problems and assistance
+Contact us before deleting an eSIM, resetting relevant device settings or attempting a device transfer if you wish to preserve service. If a device is lost or a profile is deleted, we will assess available recovery or replacement options. Recovery is not guaranteed where the technology does not permit it; applicable remedies for a fault on our part remain available.
 
-For Installation or connection problems, send your order number, device model, relevant error message and an explanation of the issue to **info@velusim.com**. Do not send passwords or payment-card security information.
+## 11. Assistance and complaints
 
-We will provide reasonable assistance and investigate problems with the supplied service. If the eSIM cannot be delivered or used as agreed, our [Refund & Cancellation Policy](https://velusim.com/legal/refund-cancellation) explains the available remedies.
+For Installation or connection problems, send your order number, device model, relevant error message and a description of the issue to **info@velusim.com**. Do not send passwords or payment-card security information.
+
+We will provide reasonable assistance and investigate problems with the supplied service. Our [Refund & Cancellation Policy](https://velusim.com/legal/refund-cancellation) explains other available remedies, and our [Complaints Handling Policy](https://velusim.com/legal/complaints) explains how to request a review.
 
 <!-- PUBLIC_POLICY_END: delivery-activation -->
 

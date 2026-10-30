@@ -5,8 +5,72 @@ import { Section, Container, Eyebrow } from "@/components/ui/Section";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema } from "@/lib/seo";
-import { policies, policyBySlug } from "@/lib/data/policies";
+import { policies, policyBySlug, type PolicyBlock } from "@/lib/data/policies";
 import { site } from "@/lib/site";
+
+/** Renders inline `**bold**` and `[label](href)` markup inside a clause. */
+function Inline({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const bold = part.match(/^\*\*([^*]+)\*\*$/);
+    if (bold) return <strong key={i} className="font-semibold text-ink">{bold[1]}</strong>;
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      const [, label, href] = link;
+      return href.startsWith("/") ? (
+        <Link key={i} href={href} className="text-emerald hover:underline">{label}</Link>
+      ) : (
+        <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-emerald hover:underline">
+          {label}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
+function Clause({ clause }: { clause: string | PolicyBlock }) {
+  if (typeof clause === "string") {
+    return <p className="text-pretty text-ink-muted"><Inline text={clause} /></p>;
+  }
+  switch (clause.type) {
+    case "subheading":
+      return <h3 className="pt-4 font-display text-xl text-ink">{clause.text}</h3>;
+    case "list": {
+      const List = clause.ordered ? "ol" : "ul";
+      return (
+        <List className={`space-y-2 pl-5 text-ink-muted ${clause.ordered ? "list-decimal" : "list-disc"}`}>
+          {clause.items.map((item, i) => (
+            <li key={i} className="text-pretty"><Inline text={item} /></li>
+          ))}
+        </List>
+      );
+    }
+    case "table":
+      return (
+        <div className="overflow-x-auto rounded-panel border border-hairline">
+          <table className="w-full min-w-[32rem] text-left text-sm">
+            <thead>
+              <tr className="border-b border-hairline">
+                {clause.head.map((h) => (
+                  <th key={h} scope="col" className="px-4 py-3 font-semibold text-ink">{h}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {clause.rows.map((row, i) => (
+                <tr key={i} className="border-b border-hairline last:border-0 align-top">
+                  {row.map((cell, j) => (
+                    <td key={j} className="px-4 py-3 text-pretty text-ink-muted"><Inline text={cell} /></td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+  }
+}
 
 export function generateStaticParams() {
   return policies.map((p) => ({ policy: p.slug }));
@@ -82,7 +146,7 @@ export default async function PolicyPage({ params }: PageProps<"/legal/[policy]"
                   </h2>
                   <div className="mt-4 space-y-4">
                     {section.clauses.map((clause, j) => (
-                      <p key={j} className="text-pretty text-ink-muted">{clause}</p>
+                      <Clause key={j} clause={clause} />
                     ))}
                   </div>
                 </section>
